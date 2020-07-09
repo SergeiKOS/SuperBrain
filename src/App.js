@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import Header from "./components/Header/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
-import Game from "./pages/Game";
+import Game from "./pages/Game/Game";
 import NotFound from "./pages/NotFound";
 
 function App() {

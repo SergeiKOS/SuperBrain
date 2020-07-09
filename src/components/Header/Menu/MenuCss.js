@@ -8,6 +8,7 @@ export const MenuCss = styled.div`
     position: absolute;
     font-size: ${font.fontBigger};
     background-color: ${colors.primary};
+    z-index: 1;
   }
 
   .menu-item {

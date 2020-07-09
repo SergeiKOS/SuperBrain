@@ -31,7 +31,7 @@ const Menu = () => {
           </NavLink>
         </li>
         <li className="menu-item">
-          <NavLink to="/games/game1">Game 1</NavLink>
+          <NavLink to="/games/calculations">Calculations</NavLink>
         </li>
         <li className="menu-item">
           <NavLink to="/games/game2">Game 2</NavLink>

@@ -12,7 +12,7 @@ const Header = () => {
       <HeaderWrapperCss className="container">
         <Menu />
         <Logo />
-        Profile
+        Profile {/* сделать наверно margin-right: 18px */}
       </HeaderWrapperCss>
     </HeaderCss>
   );
