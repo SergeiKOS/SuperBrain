@@ -14,6 +14,7 @@ export const InteractionWindowCss = styled.div`
     margin-left: auto;
     margin-right: auto;
     width: 220px;
+    margin-bottom: 10px;
   }
 
   label {
@@ -28,7 +29,7 @@ export const InteractionWindowCss = styled.div`
   }
 
   .focused label {
-    transform: translateY(-120%);
+    transform: translateY(-130%);
     font-size: ${font.fontSmall};
     left: 0;
   }

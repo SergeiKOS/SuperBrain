@@ -1,22 +1,23 @@
 import React, { useState } from "react";
 import { CalculationsCss } from "./CalculationsCss";
-import { Btn } from "../../../elements/components/Button";
+
 import InteractionWindow from "./components/InteractionWindow/InteractionWindow";
 
 const Calculations = () => {
-  const [startGame, setStartGame] = useState(true);
+  const [startGame, setStartGame] = useState(false);
 
-  const handleStartGame = () => {
-    setStartGame(true);
+  const handleStartGame = (bool) => {
+    setStartGame(bool);
   };
   return (
     <CalculationsCss>
-      <h1>Calculations game</h1>
-      {startGame ? (
-        <InteractionWindow />
-      ) : (
-        <Btn onClick={handleStartGame}>Start</Btn>
-      )}
+      <div className="calculations-wrapper">
+        <h1>Calculations game</h1>
+        <InteractionWindow
+          startGame={startGame}
+          onStartGame={handleStartGame}
+        />
+      </div>
     </CalculationsCss>
   );
 };

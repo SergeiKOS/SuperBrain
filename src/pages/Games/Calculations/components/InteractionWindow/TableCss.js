@@ -6,13 +6,27 @@ export const TableCss = styled.table`
   font-size: ${font.fontMain};
   margin-left: auto;
   margin-right: auto;
-  border: 1px solid ${colors.primary};
   border-collapse: collapse;
+
+  th {
+    padding: 10px;
+  }
 
   th,
   td {
     border: 1px solid ${colors.primary};
-    padding: 10px;
     width: 33%;
   }
+
+  .right {
+    background-color: green;
+  }
+  .wrong {
+    background-color: red;
+  }
+
+  /* .timeout {
+    border: none;
+    padding-left: 5px;
+  } style for timeout*/
 `;
