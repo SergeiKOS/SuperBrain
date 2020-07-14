@@ -1,15 +1,16 @@
 import styled from "styled-components";
 import { font } from "../../../../../elements/global/variables";
+import { colors } from "../../../../../elements/global/variables";
 
 export const ResultsStatCss = styled.div`
   text-align-last: left;
   font-size: ${font.fontBigger};
 
   & .right {
-    color: green;
+    color: ${colors.green};
   }
   & .wrong {
-    color: red;
+    color: ${colors.red};
     margin-bottom: 10px;
   }
 `;

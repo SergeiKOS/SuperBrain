@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+
 import { makeRandomNumber } from "../../../../../utils/makeRandomNumber";
 import { makeRandomOperator } from "../../utils/makeRandomOperator";
 import { calculateEquation } from "../../utils/calculateEquation";
-import { Btn } from "../../../../../elements/components/Button";
 
-import Table from "./Table";
+import { Btn } from "../../global/Button";
+
+import Table from "../Table/Table";
 
 const Question = ({
   renderQuestion,

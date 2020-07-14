@@ -1,7 +1,7 @@
 import React from "react";
 import { TableCss } from "./TableCss";
-import Result from "./Result";
-import ResultsStat from "./ResultsStat";
+import Result from "../Result/Result";
+import ResultsStat from "../ResultsStat/ResultsStat";
 
 const Table = ({ result }) => {
   return (

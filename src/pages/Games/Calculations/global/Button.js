@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { shakeAnimation } from "../global/animations";
-import { colors } from "../global/variables";
-import { font } from "../global/variables";
+import { rubberBand } from "../../../../elements/global/animations";
+import { colors } from "../../../../elements/global/variables";
+import { font } from "../../../../elements/global/variables";
 
 export const Btn = styled.button`
   text-transform: uppercase;
@@ -15,10 +15,10 @@ export const Btn = styled.button`
   line-height: 20px;
   cursor: pointer;
 
-  ${shakeAnimation}
+  ${rubberBand}
 
   &:hover {
-    animation: shake 0.3s;
+    animation: rubberBand 0.3s;
     outline: 1px solid ${colors.primary};
   }
 

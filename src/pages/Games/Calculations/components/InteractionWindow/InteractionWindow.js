@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { InteractionWindowCss } from "./InteractionWindowCss";
-import { Btn } from "../../../../../elements/components/Button";
+import { Btn } from "../../global/Button";
 
-import Question from "./Question";
+import Question from "../Question/Question";
 
 const InteractionWindow = ({ startGame, onStartGame }) => {
   const [userAnswer, setUserAnswer] = useState("");

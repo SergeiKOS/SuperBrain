@@ -1,19 +1,29 @@
-export const shakeAnimation = `@keyframes shake {
-  0% {
-    transform: translateY(5px);
+export const rubberBand = `@keyframes rubberBand {
+  from {
+    transform: scale3d(1, 1, 1);
   }
 
-  25% {
-    transform: translateY(10px);
+  30% {
+    transform: scale3d(1.25, 0.75, 1);
+  }
+
+  40% {
+    transform: scale3d(0.75, 1.25, 1);
   }
 
   50% {
-    transform: translateY(5px);
+    transform: scale3d(1.15, 0.85, 1);
   }
-  80% {
-    transform: translateY(10px);
+
+  65% {
+    transform: scale3d(0.95, 1.05, 1);
   }
-  100% {
-    transform: translateY(5px);
+
+  75% {
+    transform: scale3d(1.05, 0.95, 1);
+  }
+
+  to {
+    transform: scale3d(1, 1, 1);
   }
 }`;

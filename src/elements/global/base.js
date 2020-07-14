@@ -70,7 +70,7 @@ const GlobalStyle = createGlobalStyle`
     }
 
     @media (min-width: 1300px) {
-      width: 1300px;
+      width: 1200px;
     }
   }
 
@@ -78,7 +78,7 @@ const GlobalStyle = createGlobalStyle`
     display: grid;
     height: 100vh;
     grid-template-rows: 60px 10fr 40px;
-
+  }
 
   /* main {
     overflow: hidden;
