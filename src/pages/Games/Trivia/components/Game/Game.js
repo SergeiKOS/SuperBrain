@@ -1,27 +1,29 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import QuestionCard from "../QuestionCard/QuestionCard";
 import Summary from "../Summary/Summary";
 
 function Game({ formData }) {
-  const [userAnswer, setUserAnswer] = useState([]);
+  const [userAnswers, setUserAnswers] = useState([]);
   const [cardNumber, setCardNumber] = useState(0);
 
   const updateUserAnswer = (answer) => {
     setCardNumber(cardNumber + 1);
-    setUserAnswer([...userAnswer, answer]);
+    setUserAnswers([...userAnswers, answer]);
   };
 
   return (
     <div>
       {formData.length ? (
-        formData.length !== userAnswer.length ? (
+        formData.length !== userAnswers.length ? (
           <QuestionCard
             gameData={formData[cardNumber]}
             cardNumber={cardNumber}
             updateUserAnswer={updateUserAnswer}
           />
         ) : (
-          <Summary userAnswer={userAnswer} />
+          <Summary userAnswers={userAnswers} />
         )
       ) : (
         "Loading..."
@@ -29,5 +31,9 @@ function Game({ formData }) {
     </div>
   );
 }
+
+Game.propTypes = {
+  formData: PropTypes.array.isRequired,
+};
 
 export default Game;

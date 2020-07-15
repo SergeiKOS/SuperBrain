@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
+
 import { InteractionWindowCss } from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
 
@@ -117,6 +119,11 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   };
 
   return renderGame();
+};
+
+InteractionWindow.propTypes = {
+  startGame: PropTypes.bool.isRequired,
+  onStartGame: PropTypes.func.isRequired,
 };
 
 export default InteractionWindow;

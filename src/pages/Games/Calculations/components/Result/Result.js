@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Result = ({ result: { equation, yourAnswer, correctAnswer } }) => {
   const rightOrWrongAnswer = () => {
@@ -16,6 +17,14 @@ const Result = ({ result: { equation, yourAnswer, correctAnswer } }) => {
       {/* <td className="timeout">Timeout</td> */}
     </>
   );
+};
+
+Result.propTypes = {
+  result: PropTypes.shape({
+    equation: PropTypes.string.isRequired,
+    yourAnswer: PropTypes.number.isRequired,
+    correctAnswer: PropTypes.number.isRequired,
+  }),
 };
 
 export default Result;

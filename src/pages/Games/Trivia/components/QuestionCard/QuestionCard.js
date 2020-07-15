@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
+import PropTypes from "prop-types";
+
 import { QuestionCardCss } from "./QuestionCardCss";
 import QuestionBtn from "../Button/QuestionBtn";
 import { shuffle } from "../../utils/shuffle";
@@ -120,13 +122,14 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
   ];
 
   const nextQuestionBtnRef = useRef(null);
-  const handleEnterPress = (e) => {
-    if (e.keyCode === 13 && answer.userAnswer) {
-      nextQuestionBtnRef.current.click();
-    }
-  };
 
   useEffect(() => {
+    const handleEnterPress = (e) => {
+      if (e.keyCode === 13 && answer.userAnswer) {
+        nextQuestionBtnRef.current.click();
+      }
+    };
+
     window.addEventListener("keydown", handleEnterPress);
     return () => {
       window.removeEventListener("keydown", handleEnterPress);
@@ -211,5 +214,11 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
     return <div style={{ textAlign: "center" }}>Loading...</div>;
   }
 }
+
+QuestionCard.propTypes = {
+  gameData: PropTypes.object.isRequired,
+  cardNumber: PropTypes.number.isRequired,
+  updateUserAnswer: PropTypes.func.isRequired,
+};
 
 export default QuestionCard;

@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { TableCss } from "./TableCss";
 import Result from "../Result/Result";
 import ResultsStat from "../ResultsStat/ResultsStat";
@@ -23,6 +25,10 @@ const Table = ({ result }) => {
       <ResultsStat result={result} />
     </>
   );
+};
+
+Table.propTypes = {
+  result: PropTypes.array.isRequired,
 };
 
 export default Table;

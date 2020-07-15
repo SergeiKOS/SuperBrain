@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import { makeRandomNumber } from "../../../../../utils/makeRandomNumber";
 import { makeRandomOperator } from "../../utils/makeRandomOperator";
@@ -37,7 +38,13 @@ const Question = ({
         },
       ]);
     }
-  }, [renderQuestion]);
+  }, [
+    renderQuestion,
+    randomEquation,
+    result,
+    submittedAnswer,
+    calculatedEquation,
+  ]); // randomEquation, result, submittedAnswer, calculatedEquation, was added only because of the warning React Hook useEffect has a missing dependency
 
   useEffect(() => {
     setCalculatedEquation({
@@ -68,6 +75,13 @@ const Question = ({
       )}
     </div>
   );
+};
+
+Question.propTypes = {
+  renderQuestion: PropTypes.bool.isRequired,
+  submittedAnswer: PropTypes.number,
+  gameFinished: PropTypes.bool.isRequired,
+  onStartGameAgain: PropTypes.func.isRequired,
 };
 
 export default Question;

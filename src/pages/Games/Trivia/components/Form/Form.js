@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { FormCss } from "./FormCss.js";
 
 function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
@@ -89,5 +91,13 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
     </FormCss>
   );
 }
+
+Form.propTypes = {
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  // userValues: PropTypes.shape({
+  //   trivia_amount: PropTypes.string.isRequired,
+  // }),
+};
 
 export default Form;

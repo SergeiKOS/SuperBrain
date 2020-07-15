@@ -1,12 +1,14 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 import { SummaryCss } from "./SummaryCss";
 
-const Summary = ({ userAnswer }) => {
+const Summary = ({ userAnswers }) => {
   const summary = (rightAnswers, wrongAnswers) => {
     return (
       <SummaryCss>
         <div>
-          {userAnswer.map((answer) => (
+          {userAnswers.map((answer) => (
             <div className="answer-wrapper" key={answer.question}>
               <div>Question: {answer.question}</div>
               <div className="right-answer">
@@ -37,13 +39,17 @@ const Summary = ({ userAnswer }) => {
   const countAnswers = () => {
     let rightAnswers = 0;
     let wrongAnswers = 0;
-    userAnswer.forEach((answer) => {
+    userAnswers.forEach((answer) => {
       answer.wrongAnswer ? wrongAnswers++ : rightAnswers++;
     });
     return summary(rightAnswers, wrongAnswers);
   };
 
   return countAnswers();
+};
+
+Summary.propTypes = {
+  userAnswers: PropTypes.array.isRequired,
 };
 
 export default Summary;

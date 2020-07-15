@@ -4,10 +4,10 @@ import Game from "./components/Game/Game";
 import { fetchQuestions } from "./api";
 
 function Trivia() {
-  const [formData, setFormData] = useState({});
+  const [formData, setFormData] = useState([]);
 
   const [userValues, setUserValues] = useState({
-    trivia_amount: 1,
+    trivia_amount: "10",
     trivia_category: "",
     trivia_difficulty: "",
     trivia_type: "",
