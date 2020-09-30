@@ -1,19 +1,19 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
-import Header from "./components/Header/Header/Header";
-import Footer from "./components/Footer/Footer";
-import Home from "./pages/Home";
-import Game from "./pages/Game/Game";
+import HeaderContainer from "./containers/header";
+import { FooterContainer } from "./containers/footer";
+import Home from "./containers/home";
+import CurrentGame from "./games/CurrentGame";
 import NotFound from "./pages/NotFound";
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <HeaderContainer />
       <Switch>
         <Route path="/games/:gameName">
-          <Game />
+          <CurrentGame />
         </Route>
 
         <Route path="/not-found">
@@ -26,7 +26,7 @@ function App() {
 
         <Redirect to="/not-found" />
       </Switch>
-      <Footer />
+      <FooterContainer />
     </div>
   );
 }
