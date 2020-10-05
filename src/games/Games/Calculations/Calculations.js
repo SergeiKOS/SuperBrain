@@ -9,14 +9,10 @@ const Calculations = () => {
   const handleStartGame = (bool) => {
     setStartGame(bool);
   };
+
   return (
     <CalculationsCss>
-      <div className="calculations-wrapper">
-        <InteractionWindow
-          startGame={startGame}
-          onStartGame={handleStartGame}
-        />
-      </div>
+      <InteractionWindow startGame={startGame}  onStartGame={handleStartGame} />
     </CalculationsCss>
   );
 };

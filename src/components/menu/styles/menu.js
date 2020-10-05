@@ -7,16 +7,15 @@ import { font } from "../../../commonStyles/variables";
 export const MenuWrapper = styled.div``;
 
 export const List = styled.ul`
+  display: ${(props) => (props.isMenuShown ? "block" : "none")};
   position: absolute;
   font-size: ${font.fontBigger};
   background-color: ${colors.primary};
   z-index: 1;
 `;
 
-export const Item = styled.li`
-  /*   .menu-item*/
-  display: ${(props) => (props.isMenuShown ? "block" : "none")};
-`;
+export const Item = styled.li``;
+
 export const Link = styled(RouterLink)`
   /*.menu-item a {*/
   display: block;

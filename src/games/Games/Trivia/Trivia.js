@@ -17,6 +17,7 @@ function Trivia() {
 
   const handleChange = (e) => {
     let { name, value } = e.target;
+    console.log(name, value);
     setUserValues({ ...userValues, [name]: value });
   };
 

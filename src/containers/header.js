@@ -12,9 +12,7 @@ const HeaderContainer = () => {
             <Menu.Btn>Open menu</Menu.Btn>
             <Menu.List>
               <Menu.Item>
-                <Menu.Link to="/">
-                  Home
-                </Menu.Link>
+                <Menu.Link to="/">Home</Menu.Link>
               </Menu.Item>
               <Menu.Item>
                 <Menu.Link to="/games/calculations">Calculations</Menu.Link>
@@ -23,7 +21,7 @@ const HeaderContainer = () => {
                 <Menu.Link to="/games/trivia">Trivia</Menu.Link>
               </Menu.Item>
               <Menu.Item>
-                <Menu.Link to="/games/game3">Game 3</Menu.Link>
+                <Menu.Link to="/games/hotorcold">HotOrCold</Menu.Link>
               </Menu.Item>
               <Menu.Item>
                 <Menu.Link to="/games/game4">Game 4</Menu.Link>
@@ -31,24 +29,12 @@ const HeaderContainer = () => {
             </Menu.List>
           </Menu>
           <Logo>
-            <Logo.Link to="/">Suuuuperbrain</Logo.Link>
+            <Logo.Link to="/">Superbrain</Logo.Link>
           </Logo>
-          Profile* {/* сделать наверно margin-right: 18px */}
         </Header.Wrapper>
       </Header>
     </>
-  )
+  );
 };
-
-// const Header = () => {
-//   return (
-//     <Header>
-//       <Wrapper className="container">
-
-//         {/*Profile*/} {/* сделать наверно margin-right: 18px */}
-//       </Wrapper>
-//     </Header>
-//   );
-// };
 
 export default HeaderContainer;

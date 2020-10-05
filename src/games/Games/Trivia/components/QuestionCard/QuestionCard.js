@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 import { QuestionCardCss } from "./QuestionCardCss";
-import QuestionBtn from "../Button/QuestionBtn";
+import QuestionBtn from "../Button";
 import { shuffle } from "../../utils/shuffle";
 
 function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
@@ -194,20 +194,22 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
             answ // correct_answer included
           ) => (
             <QuestionBtn
-              text={answ}
               key={answ}
               onClick={handleSubmitAnswer}
               disable={disable}
               className={answer.userAnswer === answ ? "answered" : ""}
-            />
+            >
+              {answ}
+            </QuestionBtn>
           ))}
         </div>
         <QuestionBtn
-          text="Next question (Enter)"
           onClick={handleNextQuestion}
           disable={!disable}
-          refProps={nextQuestionBtnRef}
-        />
+          ref={nextQuestionBtnRef}
+        >
+          Next question (Enter)
+        </QuestionBtn>
       </QuestionCardCss>
     );
   } else {

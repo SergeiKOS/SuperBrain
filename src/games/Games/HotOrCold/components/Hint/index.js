@@ -1,0 +1,22 @@
+import React from "react";
+import {HintCss} from './styles/Hint'
+
+function Hint({ hintForArrayNumber, number }) {
+  const hints = [
+    "Cold",
+    "Warm",
+    "Hot",
+    "Exremely hot",
+    "You Won! Reset the game to play again.",
+  ];
+
+  return (
+    <HintCss>
+      {hints[hintForArrayNumber]
+        ? hints[hintForArrayNumber]
+        : `Guess the number from ${number.from} to ${number.to}.`}
+    </HintCss>
+  );
+}
+
+export default Hint;

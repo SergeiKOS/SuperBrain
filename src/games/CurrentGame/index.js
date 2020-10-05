@@ -6,7 +6,7 @@ import { GameCss } from "./GameCss";
 import NotFound from "../../pages/NotFound";
 import Calculations from "../Games/Calculations/Calculations";
 import Trivia from "../Games/Trivia/Trivia";
-import Game3 from "../Games/Game3";
+import HotOrCold from "../Games/HotOrCold";
 import Game4 from "../Games/Game4";
 
 const CurrentGame = () => {
@@ -15,13 +15,13 @@ const CurrentGame = () => {
   const gamesList = {
     calculations: <Calculations />,
     trivia: <Trivia />,
-    game3: <Game3 />,
+    hotorcold: <HotOrCold />,
     game4: <Game4 />,
   };
 
   return (
       <GameCss className="container">
-        <h2>{gameName.charAt(0).toUpperCase() + gameName.slice(1)}</h2>
+        {gameName === 'hotorcold' ? <h2>HotOrCold</h2> : <h2>{gameName.charAt(0).toUpperCase() + gameName.slice(1)}</h2>}
         {gamesList[gameName] || <NotFound/>}
       </GameCss>
   );

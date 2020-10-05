@@ -38,13 +38,7 @@ const Question = ({
         },
       ]);
     }
-  }, [
-    renderQuestion,
-    randomEquation,
-    result,
-    submittedAnswer,
-    calculatedEquation,
-  ]); // randomEquation, result, submittedAnswer, calculatedEquation, was added only because of the warning React Hook useEffect has a missing dependency
+  }, [renderQuestion]);
 
   useEffect(() => {
     setCalculatedEquation({

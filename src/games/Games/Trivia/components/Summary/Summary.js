@@ -1,39 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { SummaryCss } from "./SummaryCss";
 
-const Summary = ({ userAnswers }) => {
-  const summary = (rightAnswers, wrongAnswers) => {
-    return (
-      <SummaryCss>
-        <div>
-          {userAnswers.map((answer) => (
-            <div className="answer-wrapper" key={answer.question}>
-              <div>Question: {answer.question}</div>
-              <div className="right-answer">
-                Right answer: {answer.rightAnswer}
-              </div>
-              {answer.wrongAnswer ? (
-                <div className="wrong-answer">
-                  Your answer: {answer.wrongAnswer}
-                </div>
-              ) : (
-                ""
-              )}
-              <hr />
-            </div>
-          ))}
-        </div>
+import Trivia from "../../Trivia";
+import QuestionBtn from "../Button";
 
-        <div className="summary right-answer">
-          Right answers: {rightAnswers}
-        </div>
-        <div className="summary wrong-answer">
-          Wrong answers: {wrongAnswers}
-        </div>
-      </SummaryCss>
-    );
+const Summary = ({ userAnswers }) => {
+  const [restartGame, setRestartGame] = useState(false);
+
+  const handleRestartGame = () => {
+    setRestartGame(true);
+  };
+
+  const summary = (rightAnswers, wrongAnswers) => {
+    if (restartGame) {
+      return <Trivia />;
+    } else {
+      return (
+        <>
+          <SummaryCss>
+            <div>
+              {userAnswers.map((answer, index) => (
+                <div className="answer-wrapper" key={index}>
+                  <div>Question: {answer.question}</div>
+                  <div className="right-answer">
+                    Right answer: {answer.rightAnswer}
+                  </div>
+                  {answer.wrongAnswer ? (
+                    <div className="wrong-answer">
+                      Your answer: {answer.wrongAnswer}
+                    </div>
+                  ) : (
+                    ""
+                  )}
+                  <hr />
+                </div>
+              ))}
+            </div>
+
+            <div className="summary right-answer">
+              Right answers: {rightAnswers}
+            </div>
+            <div className="summary wrong-answer">
+              Wrong answers: {wrongAnswers}
+            </div>
+          </SummaryCss>
+          <QuestionBtn onClick={handleRestartGame}>Play again</QuestionBtn>
+        </>
+      );
+    }
   };
 
   const countAnswers = () => {

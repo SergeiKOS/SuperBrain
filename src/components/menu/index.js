@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext, useEffect } from "react";
+import React, { useState, useContext, createContext } from "react";
 
 import { MenuWrapper, List, Item, Link, Btn } from "./styles/menu";
 
@@ -32,12 +32,12 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
   );
 };
 Menu.List = function MenuList({ children, ...restProps }) {
-  return <List {...restProps}>{children}</List>;
+  const { isMenuShown, handleMenuChange } = useContext(menuToggleContext);
+  return <List isMenuShown={isMenuShown} onMouseLeave={handleMenuChange} {...restProps}>{children}</List>;
 };
 Menu.Item = function MenuItem({ children, ...restProps }) {
-  const { isMenuShown } = useContext(menuToggleContext);
   return (
-    <Item isMenuShown={isMenuShown} {...restProps}>
+    <Item  {...restProps}>
       {children}
     </Item>
   );
