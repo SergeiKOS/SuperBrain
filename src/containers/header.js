@@ -24,7 +24,7 @@ const HeaderContainer = () => {
                 <Menu.Link to="/games/hotorcold">HotOrCold</Menu.Link>
               </Menu.Item>
               <Menu.Item>
-                <Menu.Link to="/games/game4">Game 4</Menu.Link>
+                <Menu.Link to="/games/memory">Memory</Menu.Link>
               </Menu.Item>
             </Menu.List>
           </Menu>

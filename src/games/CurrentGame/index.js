@@ -7,7 +7,7 @@ import NotFound from "../../pages/NotFound";
 import Calculations from "../Games/Calculations/Calculations";
 import Trivia from "../Games/Trivia/Trivia";
 import HotOrCold from "../Games/HotOrCold";
-import Game4 from "../Games/Game4";
+import Memory from "../Games/Memory";
 
 const CurrentGame = () => {
   let { gameName } = useParams();
@@ -16,7 +16,7 @@ const CurrentGame = () => {
     calculations: <Calculations />,
     trivia: <Trivia />,
     hotorcold: <HotOrCold />,
-    game4: <Game4 />,
+    memory: <Memory />,
   };
 
   return (

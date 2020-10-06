@@ -22,6 +22,16 @@ export const Btn = styled.button`
   &:focus {
     outline: 1px solid ${colors.primary};
   }
+  &:disabled {
+    cursor: not-allowed;
+  }
+  &:disabled:hover {
+    background-color: ${colors.primaryLight};
+  }
+
+  &:disabled:focus {
+    background-color: red;
+  }
   
   &.small {
     width: 140px;

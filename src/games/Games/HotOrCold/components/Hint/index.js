@@ -1,5 +1,5 @@
 import React from "react";
-import {HintCss} from './styles/Hint'
+import {HintCss} from './styles/hint'
 
 function Hint({ hintForArrayNumber, number }) {
   const hints = [

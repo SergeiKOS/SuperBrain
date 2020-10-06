@@ -28,6 +28,9 @@ export const Input = styled.input`
   }
 `;
 
-export const GuessiesStats = styled.div`
+export const GuessesNumber = styled.div`
+  margin-bottom: 10px;
+`
+export const GuessesStats = styled.div`
   margin-bottom: 20px;
 `

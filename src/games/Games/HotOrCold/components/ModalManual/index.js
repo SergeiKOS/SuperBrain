@@ -1,6 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import {ModalWrapper, Modal} from './styles/ModalManual'
+import {ModalWrapper, Modal} from './styles/modalManual'
 import Button from "../Button";
 
 function ModalManual({ onShowRules }) {
@@ -10,7 +10,7 @@ function ModalManual({ onShowRules }) {
         <p>This is a Number Guessing Game with the following rules:</p>
         <ol>
           <li>
-            The machine picks a random number between 1 to 100 and keeps it
+            The machine picks a random number between 0 to 100 and keeps it
             hidden.
           </li>
           <li>
@@ -21,8 +21,7 @@ function ModalManual({ onShowRules }) {
             of the following keywords ("cold", "warm", "hot", "extremely hot").
           </li>
         </ol>
-        <div style={{ marginBottom: "10px" }}>Everything clear?</div>
-        <Button onClick={onShowRules} disabled={false}>Yes</Button>
+        <Button onClick={onShowRules} disabled={false} style={{ marginTop: "10px" }}>Back to the game</Button>
       </Modal>
     </ModalWrapper>,
     document.getElementById("portal-root")

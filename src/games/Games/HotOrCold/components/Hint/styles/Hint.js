@@ -6,4 +6,5 @@ export const HintCss = styled.div`
   margin-bottom: 20px;
   font-size: ${font.fontBigger};
   font-weight: bold;
+  min-height: 60px;
 `;

@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "../Button";
 
-import { LabelInputWrapper, Label, Input, GuessiesStats  } from "./styles/GameForm";
+import { LabelInputWrapper, Label, Input, GuessesNumber, GuessesStats  } from "./styles/gameForm";
 
 function GameForm({
   guessValue,
@@ -20,8 +20,6 @@ function GameForm({
           <Label htmlFor="guess">Enter your guess:</Label>
           <Input
             id="guess"
-            label="Number"
-            variant="outlined"
             value={guessValue}
             onChange={onGuessValueChange}
             disabled={disableGame}
@@ -32,12 +30,12 @@ function GameForm({
         </Button>
       </form>
 
-      <GuessiesStats>Guess # {guessNumber}</GuessiesStats>
-      <div>
-        {guessArray.map((guess) => (
+      <GuessesNumber>Guess amounts: {guessNumber}</GuessesNumber>
+      <GuessesStats> 
+        Attempts made: {guessArray.map((guess) => (
           <span key={guess}>{guess} </span>
         ))}
-      </div>
+      </GuessesStats>
       <Button className='small' onClick={onReset} disabled={false} >
         Reset game
       </Button>
