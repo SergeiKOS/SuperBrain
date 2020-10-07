@@ -24,9 +24,9 @@ const Home = () => {
     },
     {
       id: "4",
-      title: "Game4",
+      title: "Memory",
       image: "",
-      link: '/games/game4'
+      link: '/games/memory'
     },
   ]);
   return (

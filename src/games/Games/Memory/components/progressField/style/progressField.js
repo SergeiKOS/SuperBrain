@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colors} from "../../../../../../commonStyles/variables";
+import {colors} from "../../../cssVariables/variables";
 
 export const ProgressContainer = styled.div`
   padding: 10px;
@@ -11,5 +11,5 @@ export const ProgressBlock = styled.div`
 `;
 
 export const Text = styled.span`
-  color: ${colors.colorGray};
+  color: ${colors.darkGray};
 `;
