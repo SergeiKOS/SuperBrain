@@ -1,37 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import Tile from "../components/tile";
 import GameSquare from "../components/gameSquare";
 
-import { makeRandomNumber } from "../../../../utils/makeRandomNumber";
+const GameInteractionSquare = ({
+  levels,
+  level,
+  doPopup,
+  showChosenSquares,
+  showChosenEachSquares,
+  doShowChosenSquares,
+  doShowChosenEachSquares,
+}) => {  
+  const REMEMBER_DELAY_TIME = 2000;
 
-const GameInteractionSquare = ({ levels, level, showChosenSquares, doChangeSquareVisibility }) => {
-  const createChosenSquares = () => {
-    const squareNumbers = [];
-    for (let i = 0; i < levels[level - 1].tiles; i++) {
-      const num = makeRandomNumber(1, levels[level - 1].tilesOverall);
-      if (squareNumbers.indexOf(num) === -1) {
-        squareNumbers.push(num);
-      } else {
-        i--;
-      }
-    }
-    return squareNumbers;
-  };
   const renderLevels = () => {
     const tilesArray = [];
-    let tilesChosen = [];
-
-    if (showChosenSquares) {
-      tilesChosen = createChosenSquares();
-    }
 
     for (let i = 0; i < levels[level - 1].tilesOverall; i++) {
+      const getClassName = () => {
+        if (showChosenSquares) {
+          if (levels[level - 1].tilesChosen.indexOf(i + 1) !== -1) {
+            return "chosen-square";
+          } else {
+            return "";
+          }
+        } else {
+          if (showChosenEachSquares.indexOf(i + 1) !== -1) {
+            return "chosen-square";
+          } else {
+            return "";
+          }
+        }
+      };
       tilesArray.push(
         <Tile
           key={i}
-          className={tilesChosen.indexOf(i + 1) !== -1 ? "chosen-square" : ""}
-          onClick={handleTileClick}
+          data-chosen={
+            levels[level - 1].tilesChosen.indexOf(i + 1) !== -1 ? "chosen" : ""
+          }
+          data-id={i + 1}
+          className={getClassName()}
+          onClick={!showChosenSquares ? handleTileClick : null}
         />
       );
     }
@@ -40,14 +50,22 @@ const GameInteractionSquare = ({ levels, level, showChosenSquares, doChangeSquar
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      doChangeSquareVisibility()
-    }, 2000);
+      doShowChosenSquares();
+    }, REMEMBER_DELAY_TIME);
     return () => clearTimeout(timer);
-  }, []);
+  }, [showChosenSquares]);
 
   const handleTileClick = (e) => {
-    console.log(e.target.dataset.chosen);
-  }
+    if (e.target.dataset.chosen) {
+      doShowChosenEachSquares([
+        ...showChosenEachSquares,
+        parseInt(e.target.dataset.id),
+      ]);
+    } else {
+      console.log("You lose try again with this level.");
+      doPopup('Restart level');
+    }
+  };
 
   return <GameSquare className={`level${level}`}>{renderLevels()}</GameSquare>;
 };

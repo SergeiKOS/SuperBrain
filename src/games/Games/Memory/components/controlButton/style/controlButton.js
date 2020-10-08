@@ -15,6 +15,7 @@ export const ControlBtn = styled.button`
   border: none;
   position: relative;
   cursor: pointer;
+  z-index: 1;
 
   &.pause:hover,
   &.play:hover {

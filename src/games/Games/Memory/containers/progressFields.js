@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import ProgressField from "../components/progressField";
 
-const ProgressFields = ({levels, level}) => {
+const ProgressFields = ({levels, level, attempts}) => {
   return (
     <div>
       <ProgressField>
@@ -16,7 +16,7 @@ const ProgressFields = ({levels, level}) => {
         </ProgressField.ProgressBlock>
         <ProgressField.ProgressBlock>
           <ProgressField.Text>Attempts </ProgressField.Text>
-          <ProgressField.Text>{levels[level-1].attempts}</ProgressField.Text>
+          <ProgressField.Text>{attempts}</ProgressField.Text>
         </ProgressField.ProgressBlock>
       </ProgressField>
     </div>
