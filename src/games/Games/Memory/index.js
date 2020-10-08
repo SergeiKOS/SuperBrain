@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { MemoryContainer, MemoryPopup, MemoryPopupBtn } from "./MemoryCss";
+import {
+  MemoryContainer,
+  MemoryPopup,
+  MemoryPopupWindow,
+  MemoryPopupBtn,
+} from "./MemoryCss";
 
 import ProgressFields from "./containers/progressFields";
 import GameInteractionSquare from "./containers/gameInteractionSquare";
-import ControlButton from "./components/controlButton";
 import { makeRandomNumber } from "../../../utils/makeRandomNumber";
 
 const Memory = () => {
+  // нужно сделать что когда нажимаем на самоу игру выпадало окошко с правилами и кнопкой старта и там же кнопку с правилами сделть
   const [levels, setLevels] = useState([
     {
       level: 1,
@@ -84,11 +89,12 @@ const Memory = () => {
 
   const [level, setLevel] = useState(1);
   const [attempts, setAttempts] = useState(1);
-  const [popupShow, setPopupShow] = useState(false);
+  const [popupShowed, setPopupShowed] = useState(false);
 
-  const [showChosenSquares, setShowChosenSquares] = useState(true);
-  const [showChosenEachSquares, setShowChosenEachSquares] = useState([]);
+  const [isShownChosenSquares, setIsShownChosenSquares] = useState(true);
+  const [chosenSquareList, setChosenSquareList] = useState([]);
 
+  const [attentionText, setAttentionText] = useState("");
   const [btnText, setBtnText] = useState("Restart level");
 
   useEffect(() => {
@@ -105,73 +111,85 @@ const Memory = () => {
     const levelsCopy = [...levels];
     levelsCopy[level - 1].tilesChosen = squareNumbers;
     setLevels([...levelsCopy]);
-  }, [popupShow]);
+  }, [popupShowed]);
 
-  const handlePopup = (text) => {
-    setPopupShow(!popupShow);
-    setBtnText(text);
+  const showPopup = (attentionText, btnText) => {
+    setPopupShowed(!popupShowed);
+    setAttentionText(attentionText);
+    setBtnText(btnText);
   };
 
-  // constr restartGame = () => {
-  //   setLevel(1);
-  //   setAttempts(1)
-  // };
+  const prepareLevel = () => {
+    showChosenEachSquares([]);
+    setPopupShowed(!popupShowed);
+    showChosenSquares();
+    setIsShownChosenSquares(true);
+  };
 
-  const startLevel = () => {
-    handleShowChosenEachSquares([]);
-    setPopupShow(!popupShow);
-    handleShowChosenSquares();
-    setShowChosenSquares(true);
-    setAttempts(attempts + 1);
-
-    if (showChosenEachSquares.length === levels[level - 1].tilesChosen.length) {
-      setLevel(level + 1);
+  const handleLevelStart = () => {
+    const tryAgainIfLost = () => {
+      prepareLevel();
+      setAttempts(attempts + 1);
+    };
+    if (level !== levels.length) {
+      tryAgainIfLost();
+      if (chosenSquareList.length === levels[level - 1].tilesChosen.length) {
+        setLevel(level + 1);
+      }
+    } else if (
+      chosenSquareList.length === levels[level - 1].tilesChosen.length
+    ) {
+      prepareLevel();
+      setAttempts(1);
+      setLevel(1);
+    } else {
+      // if max level and lost
+      tryAgainIfLost();
     }
   };
 
-  const handleShowChosenSquares = () => {
-    setShowChosenSquares(false);
+  const showChosenSquares = () => {
+    setIsShownChosenSquares(false);
   };
 
-  const handleShowChosenEachSquares = (arr) => {
-    setShowChosenEachSquares(arr);
+  const showChosenEachSquares = (arr) => {
+    setChosenSquareList(arr);
     if (arr.length === levels[level - 1].tilesChosen.length) {
       if (level === levels.length) {
-        console.log("wiiiiiiiiiiiiiin");
-        handlePopup("You won! There aren\'t any new levels for you but you can play again.")
+        showPopup(
+          "You won! There aren't any new levels for you but you can play again.",
+          "Play again"
+        );
       } else {
-        handlePopup('Next level');
+        showPopup("Good job! Click below for the next level.", "Next level");
       }
     }
   };
-  console.log(level);
-  console.log(levels.length);
-  console.log(level > levels.length);
+
   return (
     <>
-      {level > levels.length ? (
-        console.log("win")
-      ) : (
-        <MemoryContainer>
-          {popupShow ? (
-            <MemoryPopup>
-              <MemoryPopupBtn onClick={startLevel}>{btnText}</MemoryPopupBtn>
-            </MemoryPopup>
-          ) : null}
-          <ProgressFields levels={levels} level={level} attempts={attempts} />
-          <GameInteractionSquare
-            levels={levels}
-            level={level}
-            doPopup={handlePopup}
-            showChosenSquares={showChosenSquares}
-            showChosenEachSquares={showChosenEachSquares}
-            doShowChosenSquares={handleShowChosenSquares}
-            doShowChosenEachSquares={handleShowChosenEachSquares}
-          />
-          <ControlButton className="pause" />
-          <ControlButton className="play" />
-        </MemoryContainer>
-      )}
+      <MemoryContainer>
+        {popupShowed ? (
+          <MemoryPopup>
+            <MemoryPopupWindow>
+              {attentionText ? attentionText : ""}
+              <MemoryPopupBtn onClick={handleLevelStart}>
+                {btnText}
+              </MemoryPopupBtn>
+            </MemoryPopupWindow>
+          </MemoryPopup>
+        ) : null}
+        <ProgressFields levels={levels} level={level} attempts={attempts} />
+        <GameInteractionSquare
+          levels={levels}
+          level={level}
+          showPopup={showPopup}
+          isShownChosenSquares={isShownChosenSquares}
+          chosenSquareList={chosenSquareList}
+          showChosenSquares={showChosenSquares}
+          showChosenEachSquares={showChosenEachSquares}
+        />
+      </MemoryContainer>
     </>
   );
 };

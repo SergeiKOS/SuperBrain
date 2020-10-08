@@ -6,27 +6,27 @@ import GameSquare from "../components/gameSquare";
 const GameInteractionSquare = ({
   levels,
   level,
-  doPopup,
+  showPopup,
+  isShownChosenSquares,
+  chosenSquareList,
   showChosenSquares,
   showChosenEachSquares,
-  doShowChosenSquares,
-  doShowChosenEachSquares,
-}) => {  
-  const REMEMBER_DELAY_TIME = 2000;
+}) => {
+  const REMEMBER_DELAY_TIME = 500;
 
   const renderLevels = () => {
     const tilesArray = [];
 
     for (let i = 0; i < levels[level - 1].tilesOverall; i++) {
       const getClassName = () => {
-        if (showChosenSquares) {
+        if (isShownChosenSquares) {
           if (levels[level - 1].tilesChosen.indexOf(i + 1) !== -1) {
             return "chosen-square";
           } else {
             return "";
           }
         } else {
-          if (showChosenEachSquares.indexOf(i + 1) !== -1) {
+          if (chosenSquareList.indexOf(i + 1) !== -1) {
             return "chosen-square";
           } else {
             return "";
@@ -41,7 +41,7 @@ const GameInteractionSquare = ({
           }
           data-id={i + 1}
           className={getClassName()}
-          onClick={!showChosenSquares ? handleTileClick : null}
+          onClick={!isShownChosenSquares ? handleTileClick : null}
         />
       );
     }
@@ -50,20 +50,22 @@ const GameInteractionSquare = ({
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      doShowChosenSquares();
+      showChosenSquares();
     }, REMEMBER_DELAY_TIME);
     return () => clearTimeout(timer);
-  }, [showChosenSquares]);
+  }, [isShownChosenSquares]);
 
   const handleTileClick = (e) => {
+    const datasetId = parseInt(e.target.dataset.id);
+
+    if (chosenSquareList.indexOf(datasetId) !== -1) {
+      return;
+    }
+    
     if (e.target.dataset.chosen) {
-      doShowChosenEachSquares([
-        ...showChosenEachSquares,
-        parseInt(e.target.dataset.id),
-      ]);
+      showChosenEachSquares([...chosenSquareList, parseInt(datasetId)]);
     } else {
-      console.log("You lose try again with this level.");
-      doPopup('Restart level');
+      showPopup("You lost this one. Try again with this level.", "Restart level");
     }
   };
 
