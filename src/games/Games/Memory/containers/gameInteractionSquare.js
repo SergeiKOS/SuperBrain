@@ -12,7 +12,7 @@ const GameInteractionSquare = ({
   showChosenSquares,
   showChosenEachSquares,
 }) => {
-  const REMEMBER_DELAY_TIME = 500;
+  const REMEMBER_DELAY_TIME = 2000;
 
   const renderLevels = () => {
     const tilesArray = [];
@@ -75,6 +75,11 @@ const GameInteractionSquare = ({
 GameInteractionSquare.propTypes = {
   levels: PropTypes.array.isRequired,
   level: PropTypes.number.isRequired,
+  showPopup: PropTypes.func.isRequired,
+  isShownChosenSquares: PropTypes.bool.isRequired,
+  chosenSquareList: PropTypes.array.isRequired,
+  showChosenSquares: PropTypes.func.isRequired,
+  showChosenEachSquares: PropTypes.func.isRequired,
 };
 
 export default GameInteractionSquare;

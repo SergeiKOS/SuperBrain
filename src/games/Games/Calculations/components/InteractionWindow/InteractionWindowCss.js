@@ -25,7 +25,7 @@ export const InteractionWindowCss = styled.div`
     font-size: ${font.fontMain};
     transition: transform 150ms ease-out, font-size 150ms ease-out;
   }
-
+  
   .focused label {
     transform: translateY(-130%);
     font-size: ${font.fontSmall};

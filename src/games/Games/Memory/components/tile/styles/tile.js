@@ -5,7 +5,6 @@ export const TileBlock = styled.div`
   width: 50px;
   height: 50px;
   background-color: ${colors.customGray};
-  /* margin: 5px; */
   border: 2px solid #000;
 
   &.chosen-square {

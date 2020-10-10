@@ -14,9 +14,10 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
     userAnswer: "",
   });
 
-  let list = [
+  let HTMLentities = [
     ['"', /&quot;/g],
     ["'", /&apos;/g],
+    ["‘", /&lsquo;/g],
     ["’", /&rsquo;/g],
     ["“", /&ldquo;/g],
     ["”", /&rdquo;/g],
@@ -121,34 +122,22 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
     ["ÿ", /&yuml;/g],
   ];
 
-  const nextQuestionBtnRef = useRef(null);
-
-  useEffect(() => {
-    const handleEnterPress = (e) => {
-      if (e.keyCode === 13 && answer.userAnswer) {
-        nextQuestionBtnRef.current.click();
-      }
-    };
-
-    window.addEventListener("keydown", handleEnterPress);
-    return () => {
-      window.removeEventListener("keydown", handleEnterPress);
-    };
-  }, [answer]);
-
   if (gameData) {
     let correctAnswer = gameData.correct_answer;
     if (gameData.incorrect_answers.length % 2 !== 0) {
       gameData.incorrect_answers.push(gameData.correct_answer);
       shuffle(gameData.incorrect_answers);
 
-      for (let i = 0; i < list.length; i++) {
-        gameData.question = gameData.question.replace(list[i][1], list[i][0]);
+      for (let i = 0; i < HTMLentities.length; i++) {
+        gameData.question = gameData.question.replace(
+          HTMLentities[i][1],
+          HTMLentities[i][0]
+        );
 
         for (let j = 0; j < gameData.incorrect_answers.length; j++) {
           gameData.incorrect_answers[j] = gameData.incorrect_answers[j].replace(
-            list[i][1],
-            list[i][0]
+            HTMLentities[i][1],
+            HTMLentities[i][0]
           );
         }
       }
@@ -174,6 +163,10 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
     };
 
     const handleNextQuestion = () => {
+      if (!answer.userAnswer) {
+        alert('Pick the question.')
+        return;  
+      }
       updateUserAnswer(answer);
       setDisable(false);
       setAnswer({});
@@ -206,9 +199,8 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
         <QuestionBtn
           onClick={handleNextQuestion}
           disable={!disable}
-          ref={nextQuestionBtnRef}
         >
-          Next question (Enter)
+          Next question
         </QuestionBtn>
       </QuestionCardCss>
     );

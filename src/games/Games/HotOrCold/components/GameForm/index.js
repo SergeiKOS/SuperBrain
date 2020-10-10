@@ -12,6 +12,7 @@ function GameForm({
   guessArray,
   onReset,
   onShowRules,
+  number
 }) {
   return (
     <>
@@ -23,6 +24,9 @@ function GameForm({
             value={guessValue}
             onChange={onGuessValueChange}
             disabled={disableGame}
+            type="number"
+            min={number.from}
+            max={number.to}
           />
         </LabelInputWrapper>
         <Button disabled={disableGame} onClick={onGuessSubmit}>

@@ -12,7 +12,7 @@ const HeaderContainer = () => {
             <Menu.Btn>Open menu</Menu.Btn>
             <Menu.List>
               <Menu.Item>
-                <Menu.Link to="/">Home</Menu.Link>
+                <Menu.Link exact to="/">Home</Menu.Link>
               </Menu.Item>
               <Menu.Item>
                 <Menu.Link to="/games/calculations">Calculations</Menu.Link>

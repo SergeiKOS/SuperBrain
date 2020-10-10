@@ -18,11 +18,18 @@ export const TableCss = styled.table`
     width: 33%;
   }
 
+  .right,
+  .wrong {
+    padding: 10px;
+    font-size: ${font.fontMain};
+    color: #f9eded;
+  }
+
   .right {
-    background-color: green;
+    background-color: #008800;
   }
   .wrong {
-    background-color: red;
+    background-color: #e20000;
   }
 
   /* .timeout {

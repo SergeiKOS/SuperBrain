@@ -9,6 +9,7 @@ export const QuestionBtnCss = styled.button`
   cursor: pointer;
   background-color: ${colors.white};
   border: 1px solid ${colors.black};
+  border: 1px solid ${colors.primary};
 
   &:hover {
     background-color: ${colors.primaryLight};

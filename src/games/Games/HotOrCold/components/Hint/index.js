@@ -1,5 +1,5 @@
 import React from "react";
-import {HintCss} from './styles/hint'
+import { HintCss } from "./styles/hint";
 
 function Hint({ hintForArrayNumber, number }) {
   const hints = [
@@ -8,6 +8,7 @@ function Hint({ hintForArrayNumber, number }) {
     "Hot",
     "Exremely hot",
     "You Won! Reset the game to play again.",
+    `You have already tried number.`
   ];
 
   return (

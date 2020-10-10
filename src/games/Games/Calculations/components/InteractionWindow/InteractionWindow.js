@@ -47,6 +47,11 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
 
   const submitQuantityAnswer = (e) => {
     e.preventDefault();
+    if (userAnswer < 1) {
+      alert('The number can\'t be less then 1.')
+      return;
+    }
+
     setUserAnswer("");
     setGameEquationsQuantity(userAnswer);
     onStartGame(true);
@@ -87,6 +92,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                     onBlur={handleBlur}
                   />
                 </div>
+                <Btn>Submit</Btn>
               </form>
             )}
           </InteractionWindowCss>

@@ -48,12 +48,12 @@ function HotOrCold() {
     if (value !== "") {
       value = +value;
       if (isNaN(value)) {
-        return null;
+        return;
       }
     }
     if (value !== "") {
-      if (value < number.from || value > number.to - 1) {
-        return null;
+      if (value < number.from || value > number.to) {
+        return;
       }
     }
     setGuessValue(value);
@@ -62,10 +62,9 @@ function HotOrCold() {
   const checkNumber = (guessValue) => {
     guessValue = +guessValue;
     const repetition = guessArray.find((number) => number === guessValue);
-    if (repetition || guessValue === 0) {
-      // show tooltip "You have already tried this number."
-
-      return null;
+    if (repetition) {
+      setHintForArrayNumber(5);
+      return;
     }
     setGuessNumber(guessNumber + 1);
 
@@ -102,8 +101,12 @@ function HotOrCold() {
 
   const handleGuessSubmit = (e) => {
     e.preventDefault();
-    checkNumber(guessValue);
 
+    if (guessValue == 0) {
+      return;
+    }
+
+    checkNumber(guessValue);
     setGuessValue("");
   };
 
@@ -131,8 +134,9 @@ function HotOrCold() {
         guessArray={guessArray}
         onReset={handleReset}
         onShowRules={handleShowRules}
+        number={number}
       />
-      <History victoryData={victoryData} />{" "}
+      <History victoryData={victoryData} />
       {toggleRules && <ModalManual onShowRules={handleShowRules} />}
     </GameWrapper>
   );

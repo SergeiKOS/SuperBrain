@@ -12,7 +12,7 @@ const Calculations = () => {
 
   return (
     <CalculationsCss>
-      <InteractionWindow startGame={startGame}  onStartGame={handleStartGame} />
+      <InteractionWindow startGame={startGame} onStartGame={handleStartGame} />
     </CalculationsCss>
   );
 };

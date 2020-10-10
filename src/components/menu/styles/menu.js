@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link as RouterLink } from 'react-router-dom';
+import { NavLink as RouterLink } from "react-router-dom";
 
 import { colors } from "../../../commonStyles/variables";
 import { font } from "../../../commonStyles/variables";
@@ -17,7 +17,6 @@ export const List = styled.ul`
 export const Item = styled.li``;
 
 export const Link = styled(RouterLink)`
-  /*.menu-item a {*/
   display: block;
   padding-top: 10px;
   padding-left: 30px;
@@ -29,6 +28,18 @@ export const Link = styled(RouterLink)`
   &:hover {
     background-color: ${colors.primaryLight};
   }
+
+  &.active,
+  &.active:hover {
+    cursor: context-menu;
+    opacity: 0.5;
+    background-color: ${colors.primary};
+  }
+
+  &.active:hover::after {
+    background-color: ${colors.primaryLight};
+  }
+
   &.active::after {
     content: "";
     width: 10px;
@@ -92,4 +103,4 @@ export const Btn = styled.button`
       transform: rotate(-45deg);
     }
   }
-`
+`;

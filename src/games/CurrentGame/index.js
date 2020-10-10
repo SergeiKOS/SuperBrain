@@ -10,7 +10,7 @@ import HotOrCold from "../Games/HotOrCold";
 import Memory from "../Games/Memory";
 
 const CurrentGame = () => {
-  let { gameName } = useParams();
+  const { gameName } = useParams();
 
   const gamesList = {
     calculations: <Calculations />,
