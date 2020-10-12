@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from 'prop-types'
+
 import Button from "../Button";
 
 import { LabelInputWrapper, Label, Input, GuessesNumber, GuessesStats  } from "./styles/gameForm";
@@ -48,6 +50,18 @@ function GameForm({
       </Button>
     </>
   );
+}
+
+GameForm.propTypes = {
+  guessValue: PropTypes.any,
+  onGuessValueChange: PropTypes.func.isRequired,
+  onGuessSubmit: PropTypes.func.isRequired,
+  disableGame: PropTypes.bool.isRequired,
+  guessNumber: PropTypes.number.isRequired,
+  guessArray: PropTypes.array.isRequired,
+  onReset: PropTypes.func.isRequired,
+  onShowRules: PropTypes.func.isRequired,
+  number : PropTypes.object.isRequired,
 }
 
 export default GameForm;

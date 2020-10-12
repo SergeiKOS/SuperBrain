@@ -5,6 +5,6 @@ import { font } from "../../../commonStyles/variables";
 export const LogoWrapper = styled.div``
 
 export const Link = styled(RouterLink)`
-    font-weight: ${font.fontWeightBold};
-    font-size: ${font.fontLogoBig};
+  font-weight: ${font.fontWeightBold};
+  font-size: ${font.fontLogoBig};
 `

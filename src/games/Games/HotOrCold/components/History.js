@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 
 const History = ({ victoryData }) => {
   return (
@@ -13,5 +14,9 @@ const History = ({ victoryData }) => {
     </section>
   );
 };
+
+History.propTypes = {
+  victoryData: PropTypes.array.isRequired
+}
 
 export default History;

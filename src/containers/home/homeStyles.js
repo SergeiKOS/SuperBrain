@@ -7,6 +7,6 @@ export const CardsWrapper = styled.div`
   justify-content: center;
 
   @media (min-width: 700px) {
-  justify-content: space-between;
+    justify-content: space-between;
   }
 `;

@@ -10,9 +10,15 @@ export const ModalWrapper = styled.div`
 `;
 
 export const Modal = styled.div`
-  width: 400px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
   font-size: 18px;
+  padding-left: 30px;
+  padding-right: 30px;
+
+@media(min-width: 768px) {
+  width: 480px;
+}
+
 `;

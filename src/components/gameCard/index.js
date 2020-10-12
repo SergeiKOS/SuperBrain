@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Image, Title, Link } from "./styles/gameCard";
-
+import { Card, Image, Title } from "./styles/gameCard";
 
 export default function GameCard ({ children, ...restProps }) {
   return <Card {...restProps}>{children}</Card>;
@@ -12,8 +11,4 @@ GameCard.Title = function ({children, ...restProps}) {
 
 GameCard.Image = function ({children, ...restProps}) {
   return <Image {...restProps}>{children}</Image>
-}
-
-GameCard.Link = function ({children, ...restProps}) {
-  return <Link {...restProps}>{children}</Link>
 }

@@ -18,3 +18,4 @@ const MemoryWindowStart = () => {
 };
 
 export default MemoryWindowStart;
+  

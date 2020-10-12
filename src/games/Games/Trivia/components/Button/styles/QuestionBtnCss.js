@@ -17,7 +17,8 @@ export const QuestionBtnCss = styled.button`
   }
 
   &:focus {
-    outline: 1px solid ${colors.primary};
+    outline: 2px solid ${colors.primary};
+    background-color: ${colors.primaryLight};;
     border: none;
   }
 

@@ -7,8 +7,8 @@ const menuToggleContext = createContext();
 export default function Menu({ children, ...restProps }) {
   const [isMenuShown, setIsMenuShown] = useState(false);
 
-  const handleMenuChange = () => {
-    setIsMenuShown(!isMenuShown);
+  const handleMenuChange = (isMenuShownParam) => {
+    setIsMenuShown(isMenuShownParam);
   };
 
   return (
@@ -23,7 +23,7 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
   return (
     <Btn
       className={`menu-button-${isMenuShown ? "hide" : "open"}`}
-      onClick={handleMenuChange}
+      onClick={()=>handleMenuChange(!isMenuShown)}
       type="button"
       {...restProps}
     >
@@ -33,11 +33,12 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
 };
 Menu.List = function MenuList({ children, ...restProps }) {
   const { isMenuShown, handleMenuChange } = useContext(menuToggleContext);
-  return <List isMenuShown={isMenuShown} onMouseLeave={handleMenuChange} {...restProps}>{children}</List>;
+  return <List isMenuShown={isMenuShown} onMouseLeave={()=>handleMenuChange(false)} {...restProps}>{children}</List>;
 };
 Menu.Item = function MenuItem({ children, ...restProps }) {
+  const { handleMenuChange } = useContext(menuToggleContext);
   return (
-    <Item  {...restProps}>
+    <Item  {...restProps} onClick={()=>handleMenuChange(false)} >
       {children}
     </Item>
   );

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import { QuestionCardCss } from "./QuestionCardCss";
@@ -128,17 +128,19 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
       gameData.incorrect_answers.push(gameData.correct_answer);
       shuffle(gameData.incorrect_answers);
 
-      for (let i = 0; i < HTMLentities.length; i++) {
-        gameData.question = gameData.question.replace(
-          HTMLentities[i][1],
-          HTMLentities[i][0]
+      const replaceEntities = (data, index) => {
+        return data.replace(
+          HTMLentities[index][1],
+          HTMLentities[index][0]
         );
+      }
+
+      for (let i = 0; i < HTMLentities.length; i++) {
+        gameData.question = replaceEntities(gameData.question, i)
+        gameData.correct_answer = replaceEntities(gameData.correct_answer, i)
 
         for (let j = 0; j < gameData.incorrect_answers.length; j++) {
-          gameData.incorrect_answers[j] = gameData.incorrect_answers[j].replace(
-            HTMLentities[i][1],
-            HTMLentities[i][0]
-          );
+          gameData.incorrect_answers[j] = replaceEntities(gameData.incorrect_answers[j], i)
         }
       }
     }

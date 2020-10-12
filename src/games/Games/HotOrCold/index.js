@@ -9,7 +9,7 @@ import History from "./components/History";
 import { makeRandomNumber } from "../../../utils/makeRandomNumber";
 
 function HotOrCold() {
-  const [guessValue, setGuessValue] = useState("");
+  const [guessValue, setGuessValue] = useState('');
   const [hintForArrayNumber, setHintForArrayNumber] = useState();
   const [randomNumber, setRandomNumber] = useState();
   const [disableGame, setDisableGame] = useState(false);
@@ -102,12 +102,12 @@ function HotOrCold() {
   const handleGuessSubmit = (e) => {
     e.preventDefault();
 
-    if (guessValue == 0) {
+    if (guessValue === 0 || !guessValue) {
       return;
     }
 
     checkNumber(guessValue);
-    setGuessValue("");
+    setGuessValue('');
   };
 
   const handleReset = () => {

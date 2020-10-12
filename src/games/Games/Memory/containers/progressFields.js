@@ -26,6 +26,7 @@ const ProgressFields = ({levels, level, attempts}) => {
 ProgressFields.propTypes = {
   levels: PropTypes.array.isRequired,
   level: PropTypes.number.isRequired,
+  attempts: PropTypes.number.isRequired,
 };
 
 export default ProgressFields;
