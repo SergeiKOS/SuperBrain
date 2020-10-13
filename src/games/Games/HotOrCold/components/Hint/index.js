@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types'
 
-import { HintCss } from "./styles/hint";
+import { HintCss } from "./styles/Hint";
 
 function Hint({ hintForArrayNumber, number }) {
   const hints = [

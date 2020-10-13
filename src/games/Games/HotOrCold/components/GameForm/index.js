@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 import Button from "../Button";
 
-import { LabelInputWrapper, Label, Input, GuessesNumber, GuessesStats  } from "./styles/gameForm";
+import { LabelInputWrapper, Label, Input, GuessesNumber, GuessesStats  } from "./styles/GameForm";
 
 function GameForm({
   guessValue,

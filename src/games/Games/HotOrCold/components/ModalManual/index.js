@@ -1,6 +1,6 @@
 import React from "react";
 import { createPortal } from "react-dom";
-import {ModalWrapper, Modal} from './styles/modalManual'
+import {ModalWrapper, Modal} from './styles/ModalManual'
 import Button from "../Button";
 
 function ModalManual({ onShowRules }) {
