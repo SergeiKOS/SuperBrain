@@ -92,7 +92,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                     onBlur={handleBlur}
                   />
                 </div>
-                <Btn>Submit</Btn>
+                <Btn type="submit">Submit</Btn>
               </form>
             )}
           </InteractionWindowCss>
@@ -117,7 +117,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                 onBlur={handleBlur}
               />
             </div>
-            <Btn>Start</Btn>
+            <Btn type="submit">Start</Btn>
           </form>
         </InteractionWindowCss>
       );

@@ -31,7 +31,7 @@ function GameForm({
             max={number.to}
           />
         </LabelInputWrapper>
-        <Button disabled={disableGame} onClick={onGuessSubmit}>
+        <Button disabled={disableGame} onClick={onGuessSubmit} type="submit">
           Guess
         </Button>
       </form>
