@@ -11,7 +11,7 @@ export const List = styled.ul`
   position: absolute;
   font-size: ${font.fontBigger};
   background-color: ${colors.primary};
-  z-index: 1;
+  z-index: 3;
 `;
 
 export const Item = styled.li``;
@@ -57,7 +57,6 @@ export const Link = styled(RouterLink)`
 `;
 
 export const Btn = styled.button`
-  /*.menu-button*/
   position: relative;
   width: 60px;
   height: 60px;

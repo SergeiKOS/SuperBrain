@@ -12,10 +12,12 @@ const HeaderContainer = () => {
             <Menu.Btn>Open menu</Menu.Btn>
             <Menu.List>
               <Menu.Item>
-                <Menu.Link exact to="/">Home</Menu.Link>
+                <Menu.Link exact to="/">
+                  Home
+                </Menu.Link>
               </Menu.Item>
               <Menu.Item>
-                <Menu.Link to="/games/calculations">Calculations</Menu.Link>
+                <Menu.Link to="/games/memory">Memory</Menu.Link>
               </Menu.Item>
               <Menu.Item>
                 <Menu.Link to="/games/trivia">Trivia</Menu.Link>
@@ -24,7 +26,7 @@ const HeaderContainer = () => {
                 <Menu.Link to="/games/hotorcold">HotOrCold</Menu.Link>
               </Menu.Item>
               <Menu.Item>
-                <Menu.Link to="/games/memory">Memory</Menu.Link>
+                <Menu.Link to="/games/calculations">Calculations</Menu.Link>
               </Menu.Item>
             </Menu.List>
           </Menu>
