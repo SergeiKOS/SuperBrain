@@ -6,10 +6,10 @@ import { font } from '../../../commonStyles/variables'
 
 export const Card = styled(RouterLink)`
   width: 280px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, .1);
   text-align: center;
   margin-bottom: 20px;
   text-align: center;  
+  outline: 1px solid ${colors.primary};
 
   &:hover {
     transition: all .3s;
