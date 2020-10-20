@@ -7,7 +7,7 @@ import { font } from '../../../commonStyles/variables'
 export const Card = styled(RouterLink)`
   width: 280px;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   text-align: center;  
   outline: 1px solid ${colors.primary};
 
