@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'; 
+
 import { InteractionWindowCss } from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
 
@@ -33,6 +36,11 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const submitAnswer = (e) => {
     e.preventDefault();
 
+    if (userAnswer === '') {
+      toast.warn('Type an answer.');
+      return;
+    }
+
     setSubmittedAnswer(parseInt(userAnswer));
 
     setUserAnswer("");
@@ -48,7 +56,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const submitQuantityAnswer = (e) => {
     e.preventDefault();
     if (userAnswer < 1) {
-      alert('The number can\'t be less then 1.')
+      toast.warn('The number can\'t be less then 1.')
       return;
     }
 
@@ -95,6 +103,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                 <Btn type="submit">Submit</Btn>
               </form>
             )}
+            <ToastContainer />
           </InteractionWindowCss>
         </>
       );
@@ -119,6 +128,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
             </div>
             <Btn type="submit">Start</Btn>
           </form>
+          <ToastContainer />
         </InteractionWindowCss>
       );
     }

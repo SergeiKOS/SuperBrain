@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import { QuestionCardCss } from "./QuestionCardCss";
 import QuestionBtn from "../Button";
 import { shuffle } from "../../utils/shuffle";
@@ -166,7 +169,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
 
     const handleNextQuestion = () => {
       if (!answer.userAnswer) {
-        alert('Pick the question.')
+        toast.warn("Pick the question.")
         return;  
       }
       updateUserAnswer(answer);
@@ -204,6 +207,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
         >
           Next question
         </QuestionBtn>
+        <ToastContainer />
       </QuestionCardCss>
     );
   } else {
