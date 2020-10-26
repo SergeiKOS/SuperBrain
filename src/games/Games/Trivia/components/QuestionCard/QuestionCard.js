@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import {customAlert, NotificationComponent} from '../../../../../utils/customNotification'
 
 import { QuestionCardCss } from "./QuestionCardCss";
 import QuestionBtn from "../Button";
@@ -169,7 +168,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
 
     const handleNextQuestion = () => {
       if (!answer.userAnswer) {
-        toast.warn("Pick the question.")
+        customAlert("Pick the question.")
         return;  
       }
       updateUserAnswer(answer);
@@ -207,7 +206,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
         >
           Next question
         </QuestionBtn>
-        <ToastContainer />
+        <NotificationComponent />
       </QuestionCardCss>
     );
   } else {

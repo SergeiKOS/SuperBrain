@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css'; 
+import {customAlert, NotificationComponent} from '../../../../../utils/customNotification'
 
 import { InteractionWindowCss } from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
@@ -37,7 +36,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
     e.preventDefault();
 
     if (userAnswer === '') {
-      toast.warn('Type an answer.');
+      customAlert('Type an answer.');
       return;
     }
 
@@ -56,7 +55,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const submitQuantityAnswer = (e) => {
     e.preventDefault();
     if (userAnswer < 1) {
-      toast.warn('The number can\'t be less then 1.')
+      customAlert('The number can\'t be less then 1.')
       return;
     }
 
@@ -103,7 +102,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                 <Btn type="submit">Submit</Btn>
               </form>
             )}
-            <ToastContainer />
+            <NotificationComponent />
           </InteractionWindowCss>
         </>
       );
@@ -128,7 +127,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
             </div>
             <Btn type="submit">Start</Btn>
           </form>
-          <ToastContainer />
+          <NotificationComponent />
         </InteractionWindowCss>
       );
     }
