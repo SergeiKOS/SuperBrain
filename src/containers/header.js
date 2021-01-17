@@ -31,7 +31,7 @@ const HeaderContainer = () => {
             </Menu.List>
           </Menu>
           <Logo>
-            <Logo.Link to="/">Superbrain</Logo.Link>
+            <Logo.Link to="/">SuperBrain</Logo.Link>
           </Logo>
         </Header.Wrapper>
       </Header>
