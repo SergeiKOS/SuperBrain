@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import QuestionCard from "../QuestionCard/QuestionCard";
 import Summary from "../Summary/Summary";
 
-function Game({ formData }) {
+function Game({ formData, error }) {
   const [userAnswers, setUserAnswers] = useState([]);
   const [cardNumber, setCardNumber] = useState(0);
 
@@ -25,6 +25,8 @@ function Game({ formData }) {
         ) : (
           <Summary userAnswers={userAnswers} />
         )
+      ) : error ? (
+        <span>{error}</span>
       ) : (
         "Loading..."
       )}
@@ -34,6 +36,7 @@ function Game({ formData }) {
 
 Game.propTypes = {
   formData: PropTypes.array.isRequired,
+  error: PropTypes.string,
 };
 
 export default Game;

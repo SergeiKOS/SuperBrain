@@ -14,6 +14,7 @@ function Trivia() {
   });
 
   const [showGame, setShowGame] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     let { name, value } = e.target;
@@ -23,19 +24,15 @@ function Trivia() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const fetchAPI = async () => {
-      const {
-        data: { results },
-      } = await fetchQuestions(userValues);
+    fetchQuestions(userValues)
+      .then(({ data: { results } }) => setFormData(results))
+      .catch(() => setError("Unexpected error."));
 
-      setFormData(results);
-      setShowGame(true);
-    };
-    fetchAPI();
+    setShowGame(true);
   };
 
   if (showGame) {
-    return <Game formData={formData} />;
+    return <Game formData={formData} error={error} />;
   } else {
     return (
       <Form
