@@ -41,7 +41,7 @@ function HotOrCold() {
 
   useEffect(() => {
     setRandomNumber(makeRandomNumber(number.from, number.to));
-  }, [newGameCount]);
+  }, [newGameCount]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleGuessValueChange = (e) => {
     let { value } = e.target;
@@ -56,7 +56,7 @@ function HotOrCold() {
         return;
       }
     }
-    setGuessValue(value);
+    setGuessValue(value); 
   };
 
   const checkNumber = (guessValue) => {

@@ -53,7 +53,7 @@ const GameInteractionSquare = ({
       showChosenSquares();
     }, REMEMBER_DELAY_TIME);
     return () => clearTimeout(timer);
-  }, [isShownChosenSquares]);
+  }, [isShownChosenSquares]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const handleTileClick = (e) => {
     const datasetId = parseInt(e.target.dataset.id);

@@ -110,7 +110,7 @@ const Memory = () => {
     const levelsCopy = [...levels];
     levelsCopy[level - 1].tilesChosen = squareNumbers;
     setLevels([...levelsCopy]);
-  }, [popupShowed]);
+  }, [popupShowed]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const showPopup = (attentionText, btnText) => {
     setPopupShowed(!popupShowed);
