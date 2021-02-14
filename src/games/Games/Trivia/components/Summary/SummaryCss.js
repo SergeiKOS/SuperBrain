@@ -6,9 +6,11 @@ export const SummaryCss = styled.div`
   .answer-wrapper {
     margin-bottom: 10px;
   }
+
   .summary {
     font-size: ${font.fontBigger};
   }
+
   .right-answer {
     color: ${colors.green};
   }

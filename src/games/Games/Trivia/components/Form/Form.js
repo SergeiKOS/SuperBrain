@@ -27,6 +27,7 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
             name="trivia_category"
             className="input-field"
             onChange={onChange}
+            id="trivia_category"
           >
             <option value="">Any Category</option>
             <option value="9">General Knowledge</option>
@@ -63,6 +64,7 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
             name="trivia_difficulty"
             className="input-field"
             onChange={onChange}
+            id="trivia_difficulty"
           >
             <option value="">Any Difficulty</option>
             <option value="easy">Easy</option>
@@ -76,6 +78,7 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
             name="trivia_type"
             className="input-field"
             onChange={onChange}
+            id="trivia_type"
           >
             <option value="">Any Type</option>
             <option value="multiple">Multiple Choice</option>

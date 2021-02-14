@@ -32,7 +32,7 @@ export const Link = styled(RouterLink)`
   &.active,
   &.active:hover {
     cursor: context-menu;
-    opacity: 0.5;
+    opacity: 0.6;
     background-color: ${colors.primary};
   }
 

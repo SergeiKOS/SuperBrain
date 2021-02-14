@@ -22,7 +22,7 @@ export const TableCss = styled.table`
   .wrong {
     padding: 10px;
     font-size: ${font.fontMain};
-    color: #f9eded;
+    color: #ffffff;
   }
 
   .right {
