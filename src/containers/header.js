@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../components/header";
 import Logo from "../components/logo";
 import Menu from "../components/menu";
+import { GiBrain } from "react-icons/gi";
+import SvgIcon from "../components/SvgIcon";
 
 const HeaderContainer = () => {
   return (
@@ -30,8 +32,15 @@ const HeaderContainer = () => {
               </Menu.Item>
             </Menu.List>
           </Menu>
-          <Logo>
-            <Logo.Link to="/">SuperBrain</Logo.Link>
+          <Logo style={{ position: "relative" }}>
+            <Logo.Link to="/">
+              <span style={{ marginRight: "53px" }}>Super</span>
+              <SvgIcon color="black" size="50px">
+                <div style={{ position: "absolute", top: '-5px', right: 0 }}>
+                  <GiBrain />
+                </div>
+              </SvgIcon>
+            </Logo.Link>
           </Logo>
         </Header.Wrapper>
       </Header>
