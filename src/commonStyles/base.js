@@ -2,6 +2,11 @@ import { createGlobalStyle } from "styled-components";
 import { colors } from "./variables";
 import { font } from "./variables";
 
+import OpenSansWoff2400 from './fonts/open-sans-v18-latin-regular.woff2';
+import OpenSansWoff400 from './fonts/open-sans-v18-latin-regular.woff';
+import OpenSansWoff2700 from './fonts/open-sans-v18-latin-700.woff';
+import OpenSansWoff700 from './fonts/open-sans-v18-latin-700.woff';
+
 const GlobalStyle = createGlobalStyle`
   /* open-sans-regular - latin */
   @font-face {
@@ -10,18 +15,18 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     font-display: swap;
     src: local(''),
-        url('fonts/open-sans-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('fonts/open-sans-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url(${OpenSansWoff2400}) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url(${OpenSansWoff400}) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
   /* open-sans-700 - latin */
   @font-face {
     font-family: 'Open Sans';
     font-style: normal;
     font-weight: 700;
-     font-display: swap;
+    font-display: swap;
     src: local(''),
-        url('fonts/open-sans-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-        url('fonts/open-sans-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+        url(${OpenSansWoff2700}) format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+        url(${OpenSansWoff700}) format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
   }
 
   *,
