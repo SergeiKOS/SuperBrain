@@ -5,7 +5,7 @@ import HeaderContainer from "./containers/header";
 import { FooterContainer } from "./containers/footer";
 import Home from "./containers/home/home";
 import CurrentGame from "./games/CurrentGame";
-import NotFound from "./pages/NotFound";
+import NotFound from "./pages/notFound/";
 
 function App() {
   return (
