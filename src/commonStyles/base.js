@@ -5,7 +5,7 @@ import { font } from "./variables";
 import OpenSansWoff2400 from './fonts/open-sans-v18-latin-regular.woff2';
 import OpenSansWoff400 from './fonts/open-sans-v18-latin-regular.woff';
 import OpenSansWoff2700 from './fonts/open-sans-v18-latin-700.woff';
-import OpenSansWoff700 from './fonts/open-sans-v18-latin-700.woff';
+import OpenSansWoff700 from './fonts/open-sans-v18-latin-700.woff2';
 
 const GlobalStyle = createGlobalStyle`
   /* open-sans-regular - latin */
