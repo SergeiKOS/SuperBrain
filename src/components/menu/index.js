@@ -7,24 +7,38 @@ const menuToggleContext = createContext();
 export default function Menu({ children, ...restProps }) {
   const [isMenuShown, setIsMenuShown] = useState(false);
 
-  const handleMenuChange = (isMenuShownParam) => {
+  const handleMenuToggle = (isMenuShownParam) => {
     setIsMenuShown(isMenuShownParam);
   };
 
+  const handleMenuClose = (e, isMenuShownParam) => {
+    const ESC_KEY = 27;
+    if (e.keyCode === ESC_KEY && isMenuShown) {
+      setIsMenuShown(isMenuShownParam);
+    }
+  };
+
   return (
-    <menuToggleContext.Provider value={{ isMenuShown, handleMenuChange }}>
+    <menuToggleContext.Provider
+      value={{ isMenuShown, handleMenuToggle, handleMenuClose }}
+    >
       <MenuWrapper {...restProps}>{children}</MenuWrapper>
     </menuToggleContext.Provider>
   );
 }
 Menu.Btn = function MenuBtn({ children, ...restProps }) {
-  const { isMenuShown, handleMenuChange } = useContext(menuToggleContext);
+  const { isMenuShown, handleMenuToggle, handleMenuClose } = useContext(
+    menuToggleContext
+  );
 
   return (
     <Btn
       className={`menu-button-${isMenuShown ? "hide" : "open"}`}
-      onClick={()=>handleMenuChange(!isMenuShown)}
+      onClick={() => handleMenuToggle(!isMenuShown)}
+      onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
       type="button"
+      aria-haspopup="true"
+      aria-controls="menuNav"
       {...restProps}
     >
       {children}
@@ -32,13 +46,28 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
   );
 };
 Menu.List = function MenuList({ children, ...restProps }) {
-  const { isMenuShown, handleMenuChange } = useContext(menuToggleContext);
-  return <List isMenuShown={isMenuShown} onMouseLeave={()=>handleMenuChange(false)} {...restProps}>{children}</List>;
+  const { isMenuShown, handleMenuToggle } = useContext(menuToggleContext);
+  return (
+    <List
+      isMenuShown={isMenuShown}
+      onMouseLeave={() => handleMenuToggle(false)}
+      id="menuNav"
+      {...restProps}
+    >
+      {children}
+    </List>
+  );
 };
 Menu.Item = function MenuItem({ children, ...restProps }) {
-  const { handleMenuChange } = useContext(menuToggleContext);
+  const { handleMenuToggle, isMenuShown, handleMenuClose } = useContext(
+    menuToggleContext
+  );
   return (
-    <Item  {...restProps} onClick={()=>handleMenuChange(false)} >
+    <Item
+      {...restProps}
+      onClick={() => handleMenuToggle(false)}
+      onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
+    >
       {children}
     </Item>
   );

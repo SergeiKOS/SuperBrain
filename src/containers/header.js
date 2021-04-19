@@ -36,7 +36,7 @@ const HeaderContainer = () => {
             <Logo.Link to="/">
               <span style={{ marginRight: "53px" }}>Super</span>
               <SvgIcon color="black" size="50px">
-                <div style={{ position: "absolute", top: '-5px', right: 0 }}>
+                <div style={{ position: "absolute", top: "-5px", right: 0 }}>
                   <GiBrain />
                 </div>
               </SvgIcon>
