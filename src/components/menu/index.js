@@ -12,8 +12,7 @@ export default function Menu({ children, ...restProps }) {
   };
 
   const handleMenuClose = (e, isMenuShownParam) => {
-    const ESC_KEY = 27;
-    if (e.keyCode === ESC_KEY && isMenuShown) {
+    if (e.key === "Escape" && isMenuShown) {
       setIsMenuShown(isMenuShownParam);
     }
   };
