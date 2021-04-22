@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useState, useContext, createContext, useEffect } from "react";
 
 import { MenuWrapper, List, Item, Link, Btn } from "./styles/menu";
 
@@ -7,8 +7,11 @@ const menuToggleContext = createContext();
 export default function Menu({ children, ...restProps }) {
   const [isMenuShown, setIsMenuShown] = useState(false);
 
-  const handleMenuToggle = (isMenuShownParam) => {
+  const handleMenuToggle = (e, isMenuShownParam) => {
     setIsMenuShown(isMenuShownParam);
+    if (e.target.classList.contains("active")) {
+      setIsMenuShown(true);
+    }
   };
 
   const handleMenuClose = (e, isMenuShownParam) => {
@@ -16,6 +19,19 @@ export default function Menu({ children, ...restProps }) {
       setIsMenuShown(isMenuShownParam);
     }
   };
+
+  const clickOutsideHandler = (e) => {
+    if (!e.target.attributes.href) {
+      handleMenuToggle(e, !isMenuShown);
+    }
+  };
+
+  useEffect(() => {
+    if (isMenuShown) {
+      document.addEventListener("mousedown", clickOutsideHandler);
+    }
+    return () => document.removeEventListener("mousedown", clickOutsideHandler);
+  }, [isMenuShown]);
 
   return (
     <menuToggleContext.Provider
@@ -33,7 +49,7 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
   return (
     <Btn
       className={`menu-button-${isMenuShown ? "hide" : "open"}`}
-      onClick={() => handleMenuToggle(!isMenuShown)}
+      onClick={(e) => handleMenuToggle(e, !isMenuShown)}
       onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
       type="button"
       aria-haspopup="true"
@@ -49,7 +65,7 @@ Menu.List = function MenuList({ children, ...restProps }) {
   return (
     <List
       isMenuShown={isMenuShown}
-      onMouseLeave={() => handleMenuToggle(false)}
+      // onMouseLeave={() => handleMenuToggle(false)}
       id="menuNav"
       {...restProps}
     >
@@ -64,7 +80,7 @@ Menu.Item = function MenuItem({ children, ...restProps }) {
   return (
     <Item
       {...restProps}
-      onClick={() => handleMenuToggle(false)}
+      onClick={(e) => handleMenuToggle(e, false)}
       onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
     >
       {children}
