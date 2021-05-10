@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { colors, font } from "../../../../../commonStyles/variables";
 
 export const MemoryContainer = styled.div`

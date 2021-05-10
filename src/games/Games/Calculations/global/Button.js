@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import { rubberBand } from "../../../../commonStyles/animations";
 import { colors } from "../../../../commonStyles/variables";
 import { font } from "../../../../commonStyles/variables";

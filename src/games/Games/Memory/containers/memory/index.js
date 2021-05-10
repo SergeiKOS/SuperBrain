@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import {
   MemoryContainer,
   MemoryPopup,
   MemoryPopupWindow,
   MemoryPopupBtn,
 } from "./MemoryCss";
-
 import ProgressFields from "../progressFields";
 import GameInteractionSquare from "../gameInteractionSquare";
 import { makeRandomNumber } from "../../../../../utils/makeRandomNumber";

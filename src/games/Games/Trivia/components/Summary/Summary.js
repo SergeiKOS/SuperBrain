@@ -1,8 +1,8 @@
 import React, { useState } from "react";
+
 import PropTypes from "prop-types";
 
 import { SummaryCss } from "./SummaryCss";
-
 import Trivia from "../../Trivia";
 import QuestionBtn from "../Button";
 

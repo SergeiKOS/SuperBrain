@@ -1,8 +1,10 @@
 import React from "react";
+
+import { GiBrain } from "react-icons/gi";
+
 import Header from "../components/header";
 import Logo from "../components/logo";
 import Menu from "../components/menu";
-import { GiBrain } from "react-icons/gi";
 import SvgIcon from "../components/SvgIcon";
 
 const HeaderContainer = () => {

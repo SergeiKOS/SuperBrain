@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { CalculationsCss } from "./CalculationsCss";
 
+import { CalculationsCss } from "./CalculationsCss";
 import InteractionWindow from "./components/InteractionWindow/InteractionWindow";
 
 const Calculations = () => {

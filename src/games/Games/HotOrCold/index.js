@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 import { GameWrapper } from "./HotOrColdCss";
-
 import Hint from "./components/Hint";
 import GameForm from "./components/GameForm";
 import ModalManual from "./components/ModalManual";

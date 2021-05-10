@@ -1,4 +1,5 @@
 import React from "react";
+
 import { BeforeGameWrapper, Text, Link } from "./style/beforeGame";
 
 const BeforeGame = () => {

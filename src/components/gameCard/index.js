@@ -1,4 +1,5 @@
 import React from "react";
+
 import { Card, Image, Title } from "./styles/gameCard";
 
 export default function GameCard ({ children, ...restProps }) {

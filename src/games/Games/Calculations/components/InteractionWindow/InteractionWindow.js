@@ -1,11 +1,10 @@
 import React, { useState } from "react";
+
 import PropTypes from "prop-types";
 
 import {customAlert, NotificationComponent} from '../../../../../utils/customNotification'
-
 import { InteractionWindowCss } from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
-
 import Question from "../Question/Question";
 
 const InteractionWindow = ({ startGame, onStartGame }) => {

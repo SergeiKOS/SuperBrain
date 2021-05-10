@@ -1,4 +1,5 @@
 import styled from "styled-components";
+
 import {colors} from "../../../cssVariables/variables";
 
 export const ProgressContainer = styled.div`

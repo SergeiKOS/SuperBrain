@@ -1,4 +1,5 @@
 import React from 'react'
+
 import {ProgressContainer, ProgressBlock, Text} from './style/progressField'
 
 export default function ProgressField ({...restProps}) {

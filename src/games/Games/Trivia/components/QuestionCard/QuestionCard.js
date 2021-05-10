@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+
 import PropTypes from "prop-types";
 
-import {customAlert, NotificationComponent} from '../../../../../utils/customNotification'
+import {
+  customAlert,
+  NotificationComponent,
+} from "../../../../../utils/customNotification";
 
 import { QuestionCardCss } from "./QuestionCardCss";
 import QuestionBtn from "../Button";
@@ -131,18 +135,18 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
       shuffle(gameData.incorrect_answers);
 
       const replaceEntities = (data, index) => {
-        return data.replace(
-          HTMLentities[index][1],
-          HTMLentities[index][0]
-        );
-      }
+        return data.replace(HTMLentities[index][1], HTMLentities[index][0]);
+      };
 
       for (let i = 0; i < HTMLentities.length; i++) {
-        gameData.question = replaceEntities(gameData.question, i)
-        gameData.correct_answer = replaceEntities(gameData.correct_answer, i)
+        gameData.question = replaceEntities(gameData.question, i);
+        gameData.correct_answer = replaceEntities(gameData.correct_answer, i);
 
         for (let j = 0; j < gameData.incorrect_answers.length; j++) {
-          gameData.incorrect_answers[j] = replaceEntities(gameData.incorrect_answers[j], i)
+          gameData.incorrect_answers[j] = replaceEntities(
+            gameData.incorrect_answers[j],
+            i
+          );
         }
       }
     }
@@ -168,8 +172,8 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
 
     const handleNextQuestion = () => {
       if (!answer.userAnswer) {
-        customAlert("Pick the question.")
-        return;  
+        customAlert("Pick the question.");
+        return;
       }
       updateUserAnswer(answer);
       setDisable(false);
@@ -200,10 +204,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
             </QuestionBtn>
           ))}
         </div>
-        <QuestionBtn
-          onClick={handleNextQuestion}
-          disable={!disable}
-        >
+        <QuestionBtn onClick={handleNextQuestion} disable={!disable}>
           Next question
         </QuestionBtn>
         <NotificationComponent />

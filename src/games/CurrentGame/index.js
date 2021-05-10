@@ -1,8 +1,8 @@
 import React from "react";
+
 import { useParams } from "react-router-dom";
 
 import { GameCss } from "./GameCss";
-
 import NotFound from "../../pages/NotFound";
 import Calculations from "../Games/Calculations/Calculations";
 import Trivia from "../Games/Trivia/Trivia";

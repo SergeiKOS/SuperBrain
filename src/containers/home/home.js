@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+
 import GameCard from "../../components/gameCard";
 import { CardsWrapper } from "./homeStyles";
-
 import calculationImg from "../../img/calculation.png";
 import triviaImg from "../../img/trivia.png";
 import hotorcoldImg from "../../img/hotorcold.png";
