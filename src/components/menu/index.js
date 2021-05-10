@@ -9,6 +9,12 @@ export default function Menu({ children, ...restProps }) {
 
   const handleMenuToggle = (e, isMenuShownParam) => {
     setIsMenuShown(isMenuShownParam);
+
+    if (e.target.classList.contains("menu-button-open")) {
+      setIsMenuShown(true);
+      return;
+    }
+
     if (e.target.classList.contains("active")) {
       setIsMenuShown(true);
     }
@@ -20,13 +26,13 @@ export default function Menu({ children, ...restProps }) {
     }
   };
 
-  const clickOutsideHandler = (e) => {
-    if (!e.target.attributes.href) {
-      handleMenuToggle(e, !isMenuShown);
-    }
-  };
-
   useEffect(() => {
+    const clickOutsideHandler = (e) => {
+      if (!e.target.attributes.href) {
+        handleMenuToggle(e, !isMenuShown);
+      }
+    };
+
     if (isMenuShown) {
       document.addEventListener("mousedown", clickOutsideHandler);
     }
@@ -61,14 +67,9 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
   );
 };
 Menu.List = function MenuList({ children, ...restProps }) {
-  const { isMenuShown, handleMenuToggle } = useContext(menuToggleContext);
+  const { isMenuShown } = useContext(menuToggleContext);
   return (
-    <List
-      isMenuShown={isMenuShown}
-      // onMouseLeave={() => handleMenuToggle(false)}
-      id="menuNav"
-      {...restProps}
-    >
+    <List isMenuShown={isMenuShown} id="menuNav" {...restProps}>
       {children}
     </List>
   );
