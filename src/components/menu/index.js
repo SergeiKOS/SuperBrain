@@ -69,7 +69,14 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
 Menu.List = function MenuList({ children, ...restProps }) {
   const { isMenuShown } = useContext(menuToggleContext);
   return (
-    <List isMenuShown={isMenuShown} id="menuNav" {...restProps}>
+    <List
+      initial={{ scale: 0 }}
+      animate={{ scale: 1.3 }}
+      transition={{ duration: 0.5 }}
+      isMenuShown={isMenuShown}
+      id="menuNav"
+      {...restProps}
+    >
       {children}
     </List>
   );

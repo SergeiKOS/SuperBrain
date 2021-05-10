@@ -1,12 +1,13 @@
 import styled from "styled-components";
 import { NavLink as RouterLink } from "react-router-dom";
+import { motion } from "framer-motion";
 
 import { colors } from "../../../commonStyles/variables";
 import { font } from "../../../commonStyles/variables";
 
 export const MenuWrapper = styled.div``;
 
-export const List = styled.ul`
+export const List = styled(motion.ul)`
   display: ${(props) => (props.isMenuShown ? "block" : "none")};
   position: absolute;
   font-size: ${font.fontBigger};
