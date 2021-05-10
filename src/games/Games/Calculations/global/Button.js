@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-import { rubberBand } from "../../../../commonStyles/animations";
 import { colors } from "../../../../commonStyles/variables";
 import { font } from "../../../../commonStyles/variables";
 
@@ -16,10 +15,7 @@ export const Btn = styled.button`
   line-height: 20px;
   cursor: pointer;
 
-  ${rubberBand}
-
   &:hover {
-    animation: rubberBand 0.3s;
     outline: 1px solid ${colors.primary};
   }
 
