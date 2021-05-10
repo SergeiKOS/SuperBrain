@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
-import {rubberBand} from '../../../../../commonStyles/animations'
 
 export const FormCss = styled.div`
   margin-top: 30px;
@@ -48,16 +47,10 @@ export const FormCss = styled.div`
     margin-left: auto;
     margin-right: auto;
 
-    ${rubberBand}
-
     &:focus {
       outline: 2px solid ${colors.primary};
       border: none;
       transform: translateY(2px);
-    }
-
-    &:hover {
-      animation: rubberBand 0.3s;
     }
   }
 
