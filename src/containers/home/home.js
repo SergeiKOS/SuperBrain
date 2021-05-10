@@ -41,8 +41,8 @@ const Home = () => {
   return (
     <div className="container">
       <CardsWrapper>
-        {gamesDescription.map((game) => (
-          <GameCard to={game.link} key={game.id}>
+        {gamesDescription.map((game, index) => (
+          <GameCard to={game.link} key={game.id} index={index}>
             <GameCard.Title>{game.title}</GameCard.Title>
             <GameCard.Image
               src={game.image}
