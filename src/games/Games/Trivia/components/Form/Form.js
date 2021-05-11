@@ -1,6 +1,7 @@
 import React from "react";
 
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 
 import { FormCss } from "./FormCss.js";
 
@@ -87,9 +88,14 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
           </select>
         </p>
         <p className="button-wrapper">
-          <button type="submit" className="form-button">
+          <motion.button
+            type="submit"
+            className="form-button"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
             Start
-          </button>
+          </motion.button>
         </p>
       </form>
     </FormCss>

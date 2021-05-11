@@ -46,7 +46,13 @@ const Summary = ({ userAnswers }) => {
               Wrong answers: {wrongAnswers}
             </div>
           </SummaryCss>
-          <QuestionBtn onClick={handleRestartGame}>Play again</QuestionBtn>
+          <QuestionBtn
+            onClick={handleRestartGame}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Play again
+          </QuestionBtn>
         </>
       );
     }
