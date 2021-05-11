@@ -1,10 +1,10 @@
 import React from "react";
 
-import {Btn} from './styles/Button'
+import { Btn } from "./styles/Button";
 
-function Button({children, ...restProps}) {
+function Button({ children, ...restProps }) {
   return (
-    <Btn {...restProps}>
+    <Btn {...restProps} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
       {children}
     </Btn>
   );

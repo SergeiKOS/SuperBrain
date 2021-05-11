@@ -1,8 +1,9 @@
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 import { colors } from "../../../../../../commonStyles/variables";
 
-export const QuestionBtnCss = styled.button`
+export const QuestionBtnCss = styled(motion.button)`
   text-align: left;
   padding: 10px;
   margin-bottom: 10px;
@@ -19,7 +20,7 @@ export const QuestionBtnCss = styled.button`
 
   &:focus {
     outline: 2px solid ${colors.primary};
-    background-color: ${colors.primaryLight};;
+    background-color: ${colors.primaryLight};
     border: none;
   }
 

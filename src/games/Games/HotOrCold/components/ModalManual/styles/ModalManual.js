@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+import { motion } from "framer-motion";
 
 export const ModalWrapper = styled.div`
   width: 100vw;
@@ -9,7 +10,7 @@ export const ModalWrapper = styled.div`
   z-index: 1;
 `;
 
-export const Modal = styled.div`
+export const Modal = styled(motion.div)`
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;
@@ -17,8 +18,7 @@ export const Modal = styled.div`
   padding-left: 30px;
   padding-right: 30px;
 
-@media(min-width: 768px) {
-  width: 480px;
-}
-
+  @media (min-width: 768px) {
+    width: 480px;
+  }
 `;

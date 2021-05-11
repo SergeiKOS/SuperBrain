@@ -15,7 +15,7 @@ export const Card = styled(motion(RouterLink))`
 
   &:hover {
     transition: all 0.3s;
-    transform: scale(1.05);
+    transform: scale(1.05)!important;
   }
 
   &:focus {

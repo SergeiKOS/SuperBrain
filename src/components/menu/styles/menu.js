@@ -65,6 +65,7 @@ export const Btn = styled.button`
   cursor: pointer;
   background-color: ${colors.primary};
   outline-color: ${colors.primaryLight};
+  
   &:hover {
     background-color: ${colors.primaryLight};
   }

@@ -48,9 +48,8 @@ export default function Menu({ children, ...restProps }) {
   );
 }
 Menu.Btn = function MenuBtn({ children, ...restProps }) {
-  const { isMenuShown, handleMenuToggle, handleMenuClose } = useContext(
-    menuToggleContext
-  );
+  const { isMenuShown, handleMenuToggle, handleMenuClose } =
+    useContext(menuToggleContext);
 
   return (
     <Btn
@@ -75,9 +74,8 @@ Menu.List = function MenuList({ children, ...restProps }) {
   );
 };
 Menu.Item = function MenuItem({ children, ...restProps }) {
-  const { handleMenuToggle, isMenuShown, handleMenuClose } = useContext(
-    menuToggleContext
-  );
+  const { handleMenuToggle, isMenuShown, handleMenuClose } =
+    useContext(menuToggleContext);
   return (
     <Item
       {...restProps}
