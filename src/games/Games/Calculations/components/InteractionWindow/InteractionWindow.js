@@ -2,7 +2,10 @@ import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import {customAlert, NotificationComponent} from '../../../../../utils/customNotification'
+import {
+  customAlert,
+  NotificationComponent,
+} from "../../../../../utils/customNotification";
 import { InteractionWindowCss } from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
 import Question from "../Question/Question";
@@ -11,10 +14,8 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const [userAnswer, setUserAnswer] = useState("");
   const [submittedAnswer, setSubmittedAnswer] = useState();
   const [focusAdded, setFocusAdded] = useState(false);
-  const [
-    triggerNewQuestionBySwitching,
-    setTriggerNewQuestionBySwitching,
-  ] = useState(false);
+  const [triggerNewQuestionBySwitching, setTriggerNewQuestionBySwitching] =
+    useState(false);
   const [gameEquationsQuantity, setGameEquationsQuantity] = useState(3);
   const [gameFinished, setGameFinished] = useState(false);
 
@@ -34,8 +35,8 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const submitAnswer = (e) => {
     e.preventDefault();
 
-    if (userAnswer === '') {
-      customAlert('Type an answer.');
+    if (userAnswer === "") {
+      customAlert("Type an answer.");
       return;
     }
 
@@ -54,7 +55,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
   const submitQuantityAnswer = (e) => {
     e.preventDefault();
     if (userAnswer < 1) {
-      customAlert('The number can\'t be less then 1.')
+      customAlert("The number can't be less then 1.");
       return;
     }
 
@@ -98,7 +99,13 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                     onBlur={handleBlur}
                   />
                 </div>
-                <Btn type="submit">Submit</Btn>
+                <Btn
+                  type="submit"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Submit
+                </Btn>
               </form>
             )}
             <NotificationComponent />
@@ -124,7 +131,13 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
                 onBlur={handleBlur}
               />
             </div>
-            <Btn type="submit">Start</Btn>
+            <Btn
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Start
+            </Btn>
           </form>
           <NotificationComponent />
         </InteractionWindowCss>

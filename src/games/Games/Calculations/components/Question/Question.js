@@ -59,7 +59,13 @@ const Question = ({
       {gameFinished ? (
         <>
           <Table result={result} />
-          <Btn onClick={handleResultReset}>Again</Btn>
+          <Btn
+            onClick={handleResultReset}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Again
+          </Btn>
         </>
       ) : (
         randomEquation.firstNumber &&

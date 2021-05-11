@@ -1,13 +1,12 @@
 import styled from "styled-components";
 import { NavLink as RouterLink } from "react-router-dom";
-import { motion } from "framer-motion";
 
 import { colors } from "../../../commonStyles/variables";
 import { font } from "../../../commonStyles/variables";
 
 export const MenuWrapper = styled.div``;
 
-export const List = styled(motion.ul)`
+export const List = styled.ul`
   display: ${(props) => (props.isMenuShown ? "block" : "none")};
   position: absolute;
   font-size: ${font.fontBigger};
@@ -66,6 +65,7 @@ export const Btn = styled.button`
   cursor: pointer;
   background-color: ${colors.primary};
   outline-color: ${colors.primaryLight};
+  
   &:hover {
     background-color: ${colors.primaryLight};
   }

@@ -5,7 +5,7 @@ import { colors } from "../../../../../commonStyles/variables";
 
 export const InteractionWindowCss = styled.div`
   margin-top: 10px;
-  
+
   .question {
     text-align: center;
     font-size: ${font.fontLogoBig};
@@ -16,8 +16,8 @@ export const InteractionWindowCss = styled.div`
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    width: 220px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+    width: 230px;
   }
 
   label {
@@ -26,7 +26,7 @@ export const InteractionWindowCss = styled.div`
     font-size: ${font.fontMain};
     transition: transform 150ms ease-out, font-size 150ms ease-out;
   }
-  
+
   .focused label {
     transform: translateY(-130%);
     font-size: ${font.fontSmall};

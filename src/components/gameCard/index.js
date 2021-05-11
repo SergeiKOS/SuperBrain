@@ -3,7 +3,7 @@ import React from "react";
 import { Card, Image, Title } from "./styles/gameCard";
 
 export default function GameCard({ index, children, ...restProps }) {
-  const SHOW_CARD_DELAY = 0.3;
+  const SHOW_CARD_DELAY = 0.2;
   return (
     <Card
       initial={{ scale: 0 }}
