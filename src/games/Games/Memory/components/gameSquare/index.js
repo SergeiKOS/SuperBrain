@@ -1,10 +1,7 @@
-import React from 'react'
+import React from "react";
 
-import {GameSquareCss} from './styles/gameSquare'
+import * as S from "./styles/gameSquare";
 
-export default function GameSquare ({...restProps}) {
-  return (
-    <GameSquareCss {...restProps}/>      
-  )
+export default function GameSquare({ ...restProps }) {
+  return <S.GameSquare {...restProps} />;
 }
-

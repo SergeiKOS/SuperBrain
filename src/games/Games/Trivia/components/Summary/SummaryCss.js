@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
 
-export const SummaryCss = styled.div`
+export const Summary = styled.div`
   .answer-wrapper {
     margin-bottom: 10px;
   }

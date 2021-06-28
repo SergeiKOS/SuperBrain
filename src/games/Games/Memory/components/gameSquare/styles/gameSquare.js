@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const GameSquareCss = styled.div`
+export const GameSquare = styled.div`
   margin-left: auto;
   margin-right: auto;
   margin-top: 10px;
@@ -43,4 +43,4 @@ export const GameSquareCss = styled.div`
   &.level12 {
     width: 300px;
   }
-`
+`;

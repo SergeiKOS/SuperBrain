@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { colors } from "../../../../../../commonStyles/variables";
 
-export const QuestionBtnCss = styled(motion.button)`
+export const QuestionBtn = styled(motion.button)`
   text-align: left;
   padding: 10px;
   margin-bottom: 10px;

@@ -1,15 +1,13 @@
 import React from "react";
 
-import { LogoWrapper, Link } from "./styles/logo";
+import * as S from "./styles/logo";
 
 const Logo = ({ children, ...restProps }) => {
-  return (
-    <LogoWrapper {...restProps}>{children}</LogoWrapper>
-  )
-}
+  return <S.LogoWrapper {...restProps}>{children}</S.LogoWrapper>;
+};
 
 Logo.Link = ({ children, ...restProps }) => {
-  return <Link {...restProps}>{children}</Link>;
-}
+  return <S.Link {...restProps}>{children}</S.Link>;
+};
 
-export default Logo;  
+export default Logo;

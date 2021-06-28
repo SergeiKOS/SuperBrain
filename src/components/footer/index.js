@@ -1,11 +1,11 @@
 import React from "react";
 
-import { FooterCss } from "./styles/footer";
+import * as S from "./styles/footer";
 
 export default function Footer({ children, ...restProps }) {
   return (
-    <FooterCss {...restProps}>
+    <S.Footer {...restProps}>
       {children}
-    </FooterCss>
+    </S.Footer>
   );
 }

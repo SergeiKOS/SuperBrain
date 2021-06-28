@@ -1,13 +1,13 @@
 import React from "react";
 import { createPortal } from "react-dom";
 
-import { ModalWrapper, Modal } from "./styles/ModalManual";
+import * as S from "./styles/ModalManual";
 import Button from "../Button";
 
 function ModalManual({ onShowRules }) {
   return createPortal(
-    <ModalWrapper>
-      <Modal initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+    <S.ModalWrapper>
+      <S.Modal initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
         <p>This is a Number Guessing Game with the following rules:</p>
         <ol>
           <li>
@@ -29,8 +29,8 @@ function ModalManual({ onShowRules }) {
         >
           Back to the game
         </Button>
-      </Modal>
-    </ModalWrapper>,
+      </S.Modal>
+    </S.ModalWrapper>,
     document.getElementById("portal-root")
   );
 }

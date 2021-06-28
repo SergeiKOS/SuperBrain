@@ -6,7 +6,7 @@ import {
   customAlert,
   NotificationComponent,
 } from "../../../../../utils/customNotification";
-import { InteractionWindowCss } from "./InteractionWindowCss";
+import * as S from "./InteractionWindowCss";
 import { Btn } from "../../global/Button";
 import Question from "../Question/Question";
 
@@ -74,7 +74,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
     if (startGame) {
       return (
         <>
-          <InteractionWindowCss>
+          <S.InteractionWindow>
             <Question
               renderQuestion={triggerNewQuestionBySwitching}
               submittedAnswer={submittedAnswer}
@@ -109,12 +109,12 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
               </form>
             )}
             <NotificationComponent />
-          </InteractionWindowCss>
+          </S.InteractionWindow>
         </>
       );
     } else {
       return (
-        <InteractionWindowCss>
+        <S.InteractionWindow>
           <form onSubmit={submitQuantityAnswer}>
             <div className={`answer-wrapper focused`}>
               <label htmlFor="equations-amount">
@@ -140,7 +140,7 @@ const InteractionWindow = ({ startGame, onStartGame }) => {
             </Btn>
           </form>
           <NotificationComponent />
-        </InteractionWindowCss>
+        </S.InteractionWindow>
       );
     }
   };

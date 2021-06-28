@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import PropTypes from "prop-types";
 
-import { SummaryCss } from "./SummaryCss";
+import * as S from "./SummaryCss";
 import Trivia from "../../Trivia";
 import QuestionBtn from "../Button";
 
@@ -19,7 +19,7 @@ const Summary = ({ userAnswers }) => {
     } else {
       return (
         <>
-          <SummaryCss>
+          <S.Summary>
             <div>
               {userAnswers.map((answer, index) => (
                 <div className="answer-wrapper" key={index}>
@@ -45,7 +45,7 @@ const Summary = ({ userAnswers }) => {
             <div className="summary wrong-answer">
               Wrong answers: {wrongAnswers}
             </div>
-          </SummaryCss>
+          </S.Summary>
           <QuestionBtn
             onClick={handleRestartGame}
             whileHover={{ scale: 1.05 }}

@@ -7,7 +7,7 @@ import {
   NotificationComponent,
 } from "../../../../../utils/customNotification";
 
-import { QuestionCardCss } from "./QuestionCardCss";
+import * as S from "./QuestionCardCss";
 import QuestionBtn from "../Button";
 import { shuffle } from "../../utils/shuffle";
 
@@ -181,7 +181,7 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
     };
 
     return (
-      <QuestionCardCss>
+      <S.QuestionCard>
         <h1>Question # {cardNumber + 1}</h1>
         <div className="category">Category: {gameData.category}</div>
         <div className="difficulty">
@@ -191,24 +191,26 @@ function QuestionCard({ gameData, cardNumber, updateUserAnswer }) {
         </div>
         <div className="question">{gameData.question}</div>
         <div className="answerWrapper">
-          {gameData.incorrect_answers.map((
-            answ // correct_answer included
-          ) => (
-            <QuestionBtn
-              key={answ}
-              onClick={handleSubmitAnswer}
-              disable={disable}
-              className={answer.userAnswer === answ ? "answered" : ""}
-            >
-              {answ}
-            </QuestionBtn>
-          ))}
+          {gameData.incorrect_answers.map(
+            (
+              answ // correct_answer included
+            ) => (
+              <QuestionBtn
+                key={answ}
+                onClick={handleSubmitAnswer}
+                disable={disable}
+                className={answer.userAnswer === answ ? "answered" : ""}
+              >
+                {answ}
+              </QuestionBtn>
+            )
+          )}
         </div>
         <QuestionBtn onClick={handleNextQuestion} disable={!disable}>
           Next question
         </QuestionBtn>
         <NotificationComponent />
-      </QuestionCardCss>
+      </S.QuestionCard>
     );
   } else {
     return <div style={{ textAlign: "center" }}>Loading...</div>;

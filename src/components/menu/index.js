@@ -1,6 +1,6 @@
 import React, { useState, useContext, createContext, useEffect } from "react";
 
-import { MenuWrapper, List, Item, Link, Btn } from "./styles/menu";
+import * as S from "./styles/menu";
 
 const menuToggleContext = createContext();
 
@@ -43,7 +43,7 @@ export default function Menu({ children, ...restProps }) {
     <menuToggleContext.Provider
       value={{ isMenuShown, handleMenuToggle, handleMenuClose }}
     >
-      <MenuWrapper {...restProps}>{children}</MenuWrapper>
+      <S.MenuWrapper {...restProps}>{children}</S.MenuWrapper>
     </menuToggleContext.Provider>
   );
 }
@@ -52,7 +52,7 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
     useContext(menuToggleContext);
 
   return (
-    <Btn
+    <S.Btn
       className={`menu-button-${isMenuShown ? "hide" : "open"}`}
       onClick={(e) => handleMenuToggle(e, !isMenuShown)}
       onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
@@ -62,30 +62,30 @@ Menu.Btn = function MenuBtn({ children, ...restProps }) {
       {...restProps}
     >
       {children}
-    </Btn>
+    </S.Btn>
   );
 };
 Menu.List = function MenuList({ children, ...restProps }) {
   const { isMenuShown } = useContext(menuToggleContext);
   return (
-    <List isMenuShown={isMenuShown} id="menuNav" {...restProps}>
+    <S.List isMenuShown={isMenuShown} id="menuNav" {...restProps}>
       {children}
-    </List>
+    </S.List>
   );
 };
 Menu.Item = function MenuItem({ children, ...restProps }) {
   const { handleMenuToggle, isMenuShown, handleMenuClose } =
     useContext(menuToggleContext);
   return (
-    <Item
+    <S.Item
       {...restProps}
       onClick={(e) => handleMenuToggle(e, false)}
       onKeyUp={(e) => handleMenuClose(e, !isMenuShown)}
     >
       {children}
-    </Item>
+    </S.Item>
   );
 };
 Menu.Link = function MenuLink({ children, ...restProps }) {
-  return <Link {...restProps}>{children}</Link>;
+  return <S.Link {...restProps}>{children}</S.Link>;
 };

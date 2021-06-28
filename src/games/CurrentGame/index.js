@@ -2,7 +2,7 @@ import React from "react";
 
 import { useParams } from "react-router-dom";
 
-import { GameCss } from "./GameCss";
+import * as S from "./GameCss";
 import NotFound from "../../pages/NotFound";
 import Calculations from "../Games/Calculations/Calculations";
 import Trivia from "../Games/Trivia/Trivia";
@@ -20,10 +20,14 @@ const CurrentGame = () => {
   };
 
   return (
-      <GameCss className="container">
-        {gameName === 'hotorcold' ? <h2>HotOrCold</h2> : <h2>{gameName.charAt(0).toUpperCase() + gameName.slice(1)}</h2>}
-        {gamesList[gameName] || <NotFound/>}
-      </GameCss>
+    <S.Game className="container">
+      {gameName === "hotorcold" ? (
+        <h2>HotOrCold</h2>
+      ) : (
+        <h2>{gameName.charAt(0).toUpperCase() + gameName.slice(1)}</h2>
+      )}
+      {gamesList[gameName] || <NotFound />}
+    </S.Game>
   );
 };
 

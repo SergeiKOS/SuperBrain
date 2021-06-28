@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
 
-export const ResultsStatCss = styled.div`
+export const ResultsStat = styled.div`
   text-align-last: left;
   font-size: ${font.fontBigger};
 

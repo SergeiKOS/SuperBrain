@@ -1,16 +1,16 @@
-import React, {forwardRef} from "react";
+import React, { forwardRef } from "react";
 
 import PropTypes from "prop-types";
 
-import { QuestionBtnCss } from "./styles/QuestionBtnCss";
-  
-const QuestionBtn = forwardRef(( props, ref ) => {
+import * as S from "./styles/QuestionBtnCss";
+
+const QuestionBtn = forwardRef((props, ref) => {
   return (
-    <QuestionBtnCss ref={ref} {...props}>
+    <S.QuestionBtn ref={ref} {...props}>
       {props.children}
-    </QuestionBtnCss>
+    </S.QuestionBtn>
   );
-})
+});
 
 QuestionBtn.propTypes = {
   onClick: PropTypes.func.isRequired,

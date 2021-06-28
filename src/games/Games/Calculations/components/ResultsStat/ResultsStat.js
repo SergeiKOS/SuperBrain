@@ -2,7 +2,7 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { ResultsStatCss } from "./ResultsStatCss";
+import * as S from "./ResultsStatCss";
 
 const ResultsStat = ({ result }) => {
   let right = 0;
@@ -15,10 +15,10 @@ const ResultsStat = ({ result }) => {
     }
   });
   return (
-    <ResultsStatCss>
+    <S.ResultsStat>
       <div className="right">Right: {right}</div>
       <div className="wrong">Wrong: {wrong}</div>
-    </ResultsStatCss>
+    </S.ResultsStat>
   );
 };
 

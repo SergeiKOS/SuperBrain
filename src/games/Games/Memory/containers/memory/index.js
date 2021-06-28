@@ -1,11 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import {
-  MemoryContainer,
-  MemoryPopup,
-  MemoryPopupWindow,
-  MemoryPopupBtn,
-} from "./MemoryCss";
+import * as S from "./MemoryCss";
 import ProgressFields from "../progressFields";
 import GameInteractionSquare from "../gameInteractionSquare";
 import { makeRandomNumber } from "../../../../../utils/makeRandomNumber";
@@ -167,16 +162,16 @@ const Memory = () => {
 
   return (
     <>
-      <MemoryContainer>
+      <S.MemoryContainer>
         {popupShowed ? (
-          <MemoryPopup>
-            <MemoryPopupWindow>
+          <S.MemoryPopup>
+            <S.MemoryPopupWindow>
               {attentionText ? attentionText : ""}
-              <MemoryPopupBtn onClick={handleLevelStart}>
+              <S.MemoryPopupBtn onClick={handleLevelStart}>
                 {btnText}
-              </MemoryPopupBtn>
-            </MemoryPopupWindow>
-          </MemoryPopup>
+              </S.MemoryPopupBtn>
+            </S.MemoryPopupWindow>
+          </S.MemoryPopup>
         ) : null}
         <ProgressFields levels={levels} level={level} attempts={attempts} />
         <GameInteractionSquare
@@ -188,7 +183,7 @@ const Memory = () => {
           showChosenSquares={showChosenSquares}
           showChosenEachSquares={showChosenEachSquares}
         />
-      </MemoryContainer>
+      </S.MemoryContainer>
     </>
   );
 };

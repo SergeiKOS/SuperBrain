@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 import { font } from "../../../../../commonStyles/variables";
 
-export const QuestionCardCss = styled.div`
+export const QuestionCard = styled.div`
   h1 {
     font-size: ${font.fontBigger};
   }

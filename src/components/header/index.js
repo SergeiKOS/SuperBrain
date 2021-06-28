@@ -1,11 +1,11 @@
 import React from "react";
 
-import { HeaderCss, Wrapper } from "./styles/header";
+import * as S from "./styles/header";
 
 export default function Header({ children, ...restProps }) {
-  return <HeaderCss {...restProps}>{children}</HeaderCss>;
+  return <S.Header {...restProps}>{children}</S.Header>;
 }
 
 Header.Wrapper = function HeaderWrapper({ children, ...restProps }) {
-  return <Wrapper {...restProps}>{children}</Wrapper>;
+  return <S.Wrapper {...restProps}>{children}</S.Wrapper>;
 };

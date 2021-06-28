@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { CalculationsCss } from "./CalculationsCss";
+import * as S from "./CalculationsCss";
 import InteractionWindow from "./components/InteractionWindow/InteractionWindow";
 
 const Calculations = () => {
@@ -11,9 +11,9 @@ const Calculations = () => {
   };
 
   return (
-    <CalculationsCss>
+    <S.Calculations>
       <InteractionWindow startGame={startGame} onStartGame={handleStartGame} />
-    </CalculationsCss>
+    </S.Calculations>
   );
 };
 

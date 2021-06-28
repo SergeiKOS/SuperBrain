@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
 
-export const InteractionWindowCss = styled.div`
+export const InteractionWindow = styled.div`
   margin-top: 10px;
 
   .question {

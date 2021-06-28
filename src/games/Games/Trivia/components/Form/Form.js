@@ -3,11 +3,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 
-import { FormCss } from "./FormCss.js";
+import * as S from "./FormCss.js";
 
 function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
   return (
-    <FormCss>
+    <S.Form>
       <form onSubmit={onSubmit}>
         <p>
           <label htmlFor="trivia_amount">Number of Questions:</label>
@@ -98,7 +98,7 @@ function Form({ userValues: { trivia_amount }, onChange, onSubmit }) {
           </motion.button>
         </p>
       </form>
-    </FormCss>
+    </S.Form>
   );
 }
 

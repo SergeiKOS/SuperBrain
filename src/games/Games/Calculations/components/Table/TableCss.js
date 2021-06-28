@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
 
-export const TableCss = styled.table`
+export const Table = styled.table`
   font-size: ${font.fontMain};
   margin-left: auto;
   margin-right: auto;

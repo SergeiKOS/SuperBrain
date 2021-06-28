@@ -1,12 +1,16 @@
 import React from "react";
 
-import { Btn } from "./styles/Button";
+import * as S from "./styles/Button";
 
 function Button({ children, ...restProps }) {
   return (
-    <Btn {...restProps} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+    <S.Button
+      {...restProps}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
       {children}
-    </Btn>
+    </S.Button>
   );
 }
 

@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { font } from "../../../../../commonStyles/variables";
 import { colors } from "../../../../../commonStyles/variables";
 
-export const FormCss = styled.div`
+export const Form = styled.div`
   margin-top: 30px;
   padding: 10px;
 

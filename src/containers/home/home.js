@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import GameCard from "../../components/gameCard";
-import { CardsWrapper } from "./homeStyles";
+import * as S from "./homeStyles";
 import calculationImg from "../../img/calculation.png";
 import triviaImg from "../../img/trivia.png";
 import hotorcoldImg from "../../img/hotorcold.png";
@@ -40,7 +40,7 @@ const Home = () => {
   ]);
   return (
     <div className="container">
-      <CardsWrapper>
+      <S.CardsWrapper>
         {gamesDescription.map((game, index) => (
           <GameCard to={game.link} key={game.id} index={index}>
             <GameCard.Title>{game.title}</GameCard.Title>
@@ -52,7 +52,7 @@ const Home = () => {
             ></GameCard.Image>
           </GameCard>
         ))}
-      </CardsWrapper>
+      </S.CardsWrapper>
     </div>
   );
 };

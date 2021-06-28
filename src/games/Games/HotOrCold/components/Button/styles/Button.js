@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 import { colors, font } from "../../../../../../commonStyles/variables";
 
-export const Btn = styled(motion.button)`
+export const Button = styled(motion.button)`
   text-transform: uppercase;
   padding: 20px;
   width: 100%;

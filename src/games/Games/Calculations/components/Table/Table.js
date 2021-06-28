@@ -2,14 +2,14 @@ import React from "react";
 
 import PropTypes from "prop-types";
 
-import { TableCss } from "./TableCss";
+import * as S from "./TableCss";
 import Result from "../Result/Result";
 import ResultsStat from "../ResultsStat/ResultsStat";
 
 const Table = ({ result }) => {
   return (
     <>
-      <TableCss>
+      <S.Table>
         <tbody>
           <tr>
             <th>Equation</th>
@@ -22,7 +22,7 @@ const Table = ({ result }) => {
             </tr>
           ))}
         </tbody>
-      </TableCss>
+      </S.Table>
       <ResultsStat result={result} />
     </>
   );
